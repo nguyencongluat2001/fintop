@@ -1,0 +1,20 @@
+docker run -d \
+  --name mysql_local \
+  --platform linux/amd64 \
+  -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -e MYSQL_DATABASE=fintop_db \
+  -e MYSQL_ROOT_HOST=% \
+  -v mysql_data:/var/lib/mysql \
+  --restart unless-stopped \
+  mysql:8.0.36 \
+  --default-authentication-plugin=mysql_native_password \
+  --innodb-use-native-aio=0 \
+  --character-set-server=utf8mb4 \
+  --collation-server=utf8mb4_unicode_ci
+
+
+  docker logs -f mysql_local
+
+
+  docker exec -it mysql_local mysql -h127.0.0.1 -uroot -proot
