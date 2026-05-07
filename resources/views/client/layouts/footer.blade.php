@@ -1,144 +1,63 @@
-<footer class="bgft pt-4" style="background:#121d29bf">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mt-3">
-                <h2 class="h4 text-light light-300" style="min-height: 5rem;">
-                    <div style="display:flex">
-                        <div style="width:10%">
-                            <img src="../clients/img/LogoFinTop_notbg.jpg" alt="Card image" width="100%">
-                        </div>
-                        <div style="width:80%;padding-left:10px">
-                            <span style="color:#ff0000d1">
-                                <b style="font-family: auto;color:#ffe673;font-weight: 600;font-size: 23px;" class="title-footer">Trung tâm NC&PT  <br> Dữ liệu chứng khoán <br> FinTop DATA</b>
-                            </span>
-                        </div>
+<footer style="position: relative; z-index: 10; background: #07070D;">
+        <div class="footer-grid" style="grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 2rem;">
+            <div>
+                <h2 class="logo">FinTop DATA</h2>
+                <p style="margin-top: 1rem;">Nơi hội tụ Data - Chuyên gia - Công nghệ &amp; AI.</p>
+            </div>
+            <div>
+                <h4 style="color: #fff; margin-bottom: 1rem; font-size: 0.95rem;">Sản phẩm</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                    <a href="hoi-vien/index.html">Hội Viên</a>
+                    <a href="fintop-data/index.html">FinTop Data</a>
+                    <a href="chuyen-gia/index.html">Chuyên Gia</a>
+                    <a href="fintop-ai/index.html">FinTop AI</a>
+                    <a href="stock-data/index.html">Stock Data</a>
+                    <a href="huong-dan/index.html">Hướng Dẫn</a>
+                </div>
+            </div>
+            <div>
+                <h4 style="color: #fff; margin-bottom: 1rem; font-size: 0.95rem;">Liên hệ</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.6rem; color: #94A3B8;">
+                    <p style="display: flex; align-items: center; gap: 6px;"><img
+                            src="/assetsFT/images/icons8-phone-color-hand-drawn-favicons/web/icons8-phone-color-hand-drawn-32.png"
+                            alt="Phone" width="20" height="20" style="vertical-align: middle;"> Hotline: <a
+                            href="tel:0862348886" style="color: #c084fc;">086.234.8886</a></p>
+                    <p style="display: flex; align-items: center; gap: 6px;">📧 Email: <a
+                            href="mailto:DVKH@fintopdata.vn" style="color: #c084fc;">DVKH@fintopdata.vn</a></p>
+                    <p style="display: flex; align-items: center; gap: 6px;">📍 65 Ô Chợ Dừa, Đống Đa, Hà Nội</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <h4 style="color: #fff; margin-bottom: 1rem; font-size: 0.95rem;">Tải ứng dụng</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem; align-items: center;">
+                    <a href="#"
+                        style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 8px 16px; color: #fff; font-size: 0.85rem; transition: all 0.3s ease; text-decoration: none;">
+                        <img src="/assetsFT/images/icons8-app-store-color-favicons/web/icons8-app-store-color-32.png"
+                            alt="App Store" width="20" height="20"> App Store
+                    </a>
+                    <a href="#"
+                        style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 8px 16px; color: #fff; font-size: 0.85rem; transition: all 0.3s ease; text-decoration: none;">
+                        <img src="/assetsFT/images/icons8-google-play-windows-11-color-favicons/web/icons8-google-play-windows-11-color-32.png"
+                            alt="Google Play" width="20" height="20"> Google Play
+                    </a>
+                    <div
+                        style="margin-top: 0.5rem; background: #fff; border-radius: 8px; padding: 8px; display: inline-block;">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&amp;data=https://zalo.me/fintopdata"
+                            alt="QR Zalo" width="80" height="80" style="display: block;">
                     </div>
-                    
-                </h2>
-                <table class="text-light">
-                    <colgroup>
-                        <col width="8%">
-                        <col width="92%">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td align="center" style="vertical-align: middle;"><i class="fas fa-phone-volume"></i></td>
-                            <td><a class="text-decoration-none pt-2 text-light py-1" href="tel:086.234.8886"> Hotline: 086.234.8886</a></td>
-                        </tr>
-                        <tr>
-                            <td align="center" style="vertical-align: middle;"><i class="fas fa-envelope"></i></td>
-                            <td><a class="text-decoration-none pt-2 text-light py-1" href="mailto:FinTop.DVKH@gmail.com"> Email: DVKH@fintopdata.vn</a></td>
-                        </tr>
-                        <tr>
-                            <td align="center" style="vertical-align: middle;"><i class="fas fa-map-marker-alt"></i></td>
-                            <td><span class="text-decoration-none pt-2 text-light py-1">Địa chỉ: 65 Ô Chợ Dừa, Đống Đa, Hà Nội.</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-3 mt-3">
-                <h2 class="h4 text-light light-300" style="min-height: 5rem;display: flex;align-items: center;" >
-                    <i class="fas fa-handshake"></i> Đồng hành
-                </h2>
-                <!-- Đồng hành -->
-                <table class="text-light">
-                    <colgroup>
-                        <col width="8%">
-                        <col width="92%">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td align="center" style="vertical-align: middle;"><i class="fab fa-facebook"></i></td>
-                            <td><a class="text-decoration-none pt-2 text-light py-1" target="_blank" href="https://www.facebook.com/Fintopdata.vn"> Trung tâm NC&PT Dữ liệu chứng khoán FinTop</a></td>
-                        </tr>
-                        <tr>
-                            <td align="center" style="vertical-align: middle;"><i class="fab fa-youtube"></i></td>
-                            <td><a class="text-decoration-none pt-2 text-light py-1" href="https://www.youtube.com/@fintopdata.kynguyendautu"> Kỷ Nguyên Đầu Tư | FinTop DATA</a></td>
-                        </tr>
-                        <tr>
-                            <td align="center" style="vertical-align: middle;"><i class="fas fa-hand-point-right"></i></td>
-                            <td><a class="text-decoration-none pt-2 text-light py-1" href="https://zalo.me/g/qlbpzh027"> Tham gia Cộng đồng FinTop </a></td>
-                        </tr>
-                        <!-- <tr>
-                            <td colspan="2">
-                                <span>
-                                    <a class="text-light" style="text-decoration: none;" target="_blank" href="http://facebook.com/">
-                                        <i class='bx bxl-facebook-square bx-md'></i>
-                                    </a>
-                                </span>
-                                <span>
-                                    <a class="text-light" style="text-decoration: none;" target="_blank" href="https://www.linkedin.com/">
-                                        <i class='bx bxl-linkedin-square bx-md'></i>
-                                    </a>
-                                </span>
-                                <span>
-                                    <a class="text-light" style="text-decoration: none;" target="_blank" href="https://www.whatsapp.com/">
-                                        <i class='bx bxl-whatsapp-square bx-md'></i>
-                                    </a>
-                                </span>
-                                <span>
-                                    <a class="text-light" style="text-decoration: none;" target="_blank" href="https://www.flickr.com/">
-                                        <i class='bx bxl-flickr-square bx-md'></i>
-                                    </a>
-                                </span>
-                                <span>
-                                    <a class="text-light" style="text-decoration: none;" target="_blank" href="https://www.medium.com/">
-                                        <i class='bx bxl-medium-square bx-md'></i>
-                                    </a>
-                                </span>
-                            </td>
-                        </tr> -->
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-3 mt-3">
-                <h2 class="h4 text-light light-300" style="min-height: 5rem;display: flex;align-items: center;" >
-                    <i class="fas fa-handshake"></i> Tải APP
-                </h2>
-                <!-- Tải app -->
-                <table class="text-light">
-                    <colgroup>
-                        <col width="50%">
-                        <col width="50%">
-                    </colgroup>
-                    <tbody>
-                        <tr>
-                            <td style="vertical-align: top;">
-                                <table class="text-light">
-                                    <colgroup>
-                                        <col width="8%">
-                                        <col width="92%">
-                                    </colgroup>
-                                    <tbody>
-                                        <tr>
-                                            <td align="center" style="vertical-align: middle;"><i class="fab fa-app-store-ios"></i></td>
-                                            <td><a class="text-decoration-none text-light py-1" href="tel:086.234.8886"> App Store </a></td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" style="vertical-align: middle;"><i class="fab fa-google-play"></i></td>
-                                            <td><a class="text-decoration-none text-light py-1" href="mailto:info@company.com"> Google Play</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td align="center" style="vertical-align: middle;"><i class="fas fa-qrcode"></i></td>
-                                            <td><a class="text-decoration-none text-light py-1" href="mailto:info@company.com"> QR zalo</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td style="vertical-align: top;">
-                                <p class="text-decoration-none text-light py-1"> <img class="card-img " src="{{ URL::asset('clients/img/LogoFinTop_notbg.jpg') }}" alt="Card image" style="width:45%"> </p>
-                                <p class="btn btn-light" style="cursor: pointer;" onclick="gotop()" id="goTop"><i class="fas fa-arrow-up"></i> Về đầu trang</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <hr class="mt-3 text-light">
-            <div class="col-md-12">
-                <p class="text-lg-start text-center text-light light-300">
-                    Bản quyền @2023 , Trung tâm NC&PT Dữ liệu chứng khoán FinTop DATA
-                </p>
+                    <span
+                        style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #94A3B8;"><img
+                            src="/assetsFT/images/icons8-zalo-color-hand-drawn-favicons/web/icons8-zalo-color-hand-drawn-32.png"
+                            alt="Zalo" width="18" height="18"> Zalo FinTop</span>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+        <div
+            style="max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+            <p>© 2026 FinTop DATA. All rights reserved.</p>
+        </div>
+        <div class="footer-disclaimer">
+            <strong>Miễn trừ trách nhiệm:</strong> Dữ liệu chỉ mang tính chất tham khảo, không phải khuyến nghị đầu tư.
+            Người dùng chịu hoàn toàn trách nhiệm trước các quyết định giao dịch của mình.
+        </div>
+    </footer>

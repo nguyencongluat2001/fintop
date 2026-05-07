@@ -55,11 +55,7 @@ $data = ApprovePaymentModel::where('status',0)->count();
 $arrdData = ApprovePaymentModel::where('status',0)->get()->toArray();
 
 @endphp
-    @if ($_SESSION['color_view'] == 1)
         <body id="addMenu" class="g-sidenav-show dark-version ">
-    @else
-        <body id="addMenu" class="g-sidenav-show bg-white ">
-    @endif
     <div id="imageLoading">
             <div class="loader_bg">
                 <div class="loader"><img src="../assets/images/loading.gif" alt="#" /></div>
@@ -83,12 +79,14 @@ $arrdData = ApprovePaymentModel::where('status',0)->get()->toArray();
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main" >
             <ul class="navbar-nav">
                 <!-- sidebar -->
-                @if(isset($_SESSION['sidebar']))
-                    @foreach($_SESSION['sidebar'] as $value)
+                @if(session('sidebar'))
+                    @foreach(session('sidebar') as $value)
                         <li class="nav-item">
-                            <a style="color:white" class="{{$value['a']}}" href="{{ URL::asset($value['href']) }}">
-                                <i class="{{$value['icon']}}"></i>
-                                <span class="nav-link-text ms-1" >{{$value['name']}}</span>
+                            <a style="color:white" class="{{ $value['a'] }}" href="{{ URL::asset($value['href']) }}">
+                                <i class="{{ $value['icon'] }}"></i>
+                                <span class="nav-link-text ms-1">
+                                    {{ $value['name'] }}
+                                </span>
                             </a>
                         </li>
                     @endforeach
@@ -145,7 +143,7 @@ $arrdData = ApprovePaymentModel::where('status',0)->get()->toArray();
                             <span id="navbarDropdown" class="dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <span>
-                                {{ $_SESSION['name'] }}
+                                {{ session('name') }}
                                 </span>
                             </span>
 
@@ -226,7 +224,7 @@ $arrdData = ApprovePaymentModel::where('status',0)->get()->toArray();
                                         <span id="navbarDropdown" class="dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             <span>
-                                            {{ $_SESSION['name'] }}
+                                            {{ session('name') }}
                                             </span>
                                         </span>
 
@@ -313,22 +311,13 @@ $arrdData = ApprovePaymentModel::where('status',0)->get()->toArray();
     <!--   Core JS Files   -->
     <script src='../assets/js/jquery.js'></script>
     <script type="text/javascript" src="{{ URL::asset('..\assets\js\Js_Main.js') }}"></script>
-        @if($_SESSION["color_view"] == 1)
+      
         <script type="text/javascript">
             var Js_Main = new Js_Main(this);
             jQuery(document).ready(function ($) {
                 Js_Main.darkMode(1);
             })
         </script>
-        @else 
-        <script type="text/javascript">
-            var Js_Main = new Js_Main(this);
-            jQuery(document).ready(function ($) {
-                Js_Main.darkMode(2);
-            })
-            </script>
-
-        @endif
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

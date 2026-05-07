@@ -94,7 +94,7 @@ Route::get('/dangky/{id}', [UserController::class, 'registerIntroduce']);
 Route::post('register/send-otp/getUser', [UserController::class, 'getUser']);
 Route::post('client/infor/getUser', [UserController::class, 'getUser']);
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::middleware('checkloginAdmin')->group(function () {
         // quản trị người dùng
         Route::prefix('/system/user')->group(function () {

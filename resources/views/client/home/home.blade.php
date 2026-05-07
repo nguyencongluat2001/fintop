@@ -1,446 +1,317 @@
 @extends('client.layouts.index')
+
 @section('body-client')
-@php
-use Carbon\Carbon;
-@endphp
-<title>TÀI CHÍNH & ĐẦU TƯ FINTOP</title>
-<style>
-    header {
-        font-family: 'Lobster', cursive;
-        text-align: center;
-        font-size: 25px;
-    }
+<!-- VÙNG CUỘN HIỆU ỨNG ĐIỆN ẢNH -->
+    <div id="cinematic-container">
 
-    #info {
-        font-size: 18px;
-        color: #555;
-        text-align: center;
-        margin-bottom: 25px;
-    }
+        <!-- Hiệu Ứng Flash Chuyển Cảnh -->
+        <div class="flash-overlay"></div>
 
-    a {
-        color: #074E8C;
-    }
+        <!-- PHÂN CẢNH 1: TRANG CHỦ HERO -->
+        <section class="scene scene-1">
+            <div class="hero-content">
+                <h1 class="hero-title gradient-text">Kỷ Nguyên Đầu Tư Cùng FinTop DATA.</h1>
+                <p class="hero-subtitle">Nơi hội tụ Data - Chuyên gia - Công nghệ & AI. Tinh gọn và hiệu quả.</p>
+                <div class="hero-cta-wrapper">
+                    <button class="btn-white-huge" onclick="location.href='hoi-vien/index.html'">Bắt đầu miễn
+                        phí</button>
+                    <span style="font-size: 0.9rem; color: #94A3B8; letter-spacing: 0.5px;"></span>
+                </div>
+            </div>
 
-    .scrollbar_blog {
-        /* float: left; */
-        max-height: 800px !important;
-        /* width: 65px; */
-        /* background: #F5F5F5; */
-        overflow-y: scroll;
-        margin-bottom: 25px;
-    }
+            <!-- Giao Diện Giả Lập Trợ Lý AI -->
+            <div class="ai-assistant-widget">
+                <div class="ai-avatar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                        <path d="M5 3v4" />
+                        <path d="M19 17v4" />
+                        <path d="M3 5h4" />
+                        <path d="M17 19h4" />
+                    </svg>
+                </div>
+                <div class="ai-message">
+                    <div class="ai-name">
+                        FinTop AI
+                        <div class="ai-status-dot"></div>
+                    </div>
+                    <div class="ai-text">"Phát hiện dòng tiền lớn thâm nhập mã FPT. Khuyến nghị Tích lũy vùng giá 132.
+                        Bạn muốn mở phân tích chuyên sâu chứ?"</div>
+                </div>
+            </div>
 
-    .force-overflow {
-        min-height: 400px;
-    }
+            <div style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); opacity: 0.5;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </section>
 
-    #wrapper {
-        text-align: center;
-        width: 500px;
-        margin: auto;
-    }
+        <!-- PHÂN CẢNH 2: TÍNH NĂNG -->
+        <section class="scene scene-2">
+            <div class="ai-cube gradient-text">Dữ Liệu Cho Nhà Đầu Tư Thế Hệ Mới!</div>
+            <div class="panels-container">
+                <div class="panel">
+                    <h3 style="color:var(--text-primary); margin-bottom:1rem;">DATA</h3>
+                    <ul style="color: var(--text-secondary); line-height: 2;">
+                        <li>✓ Tra cứu Cổ phiếu</li>
+                        <li>✓ Bộ lọc Tín hiệu</li>
+                        <li>✓ Stock Data API</li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 style="color:var(--text-primary); margin-bottom:1rem;">CHUYÊN GIA</h3>
+                    <ul style="color: var(--text-secondary); line-height: 2;">
+                        <li>✓ Nhận định Tín hiệu</li>
+                        <li>✓ Danh mục Khuyến nghị</li>
+                        <li>✓ Cố vấn 1-1</li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h3 style="color:var(--text-primary); margin-bottom:1rem;">AI PHÂN TÍCH</h3>
+                    <ul style="color: var(--text-secondary); line-height: 2;">
+                        <li>✓ Công cụ FinTop AI</li>
+                        <li>✓ Tự động hóa điểm mua/bán</li>
+                        <li>✓ Phân tích Sentiment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    /*
-    *  STYLE 2
-    */
-
-    #style-2::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        background-color: #F5F5F5;
-    }
-
-    #style-2::-webkit-scrollbar {
-        width: 12px;
-        background-color: #F5F5F5;
-    }
-
-    #style-2::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-        background-color: #D62929;
-    }
-
-    .tv-lightweight-charts {
-        width: 100%;
-        padding-right: var(--bs-gutter-x, 0.5rem) !important;
-        padding-left: var(--bs-gutter-x, 0.5rem) !important;
-        margin-right: auto !important;
-        margin-left: auto !important;
-    }
-
-    /* .card {
-        background: #ffffff26 !important;
-    } */
-
-    .blogReader {
-        max-height: 100px;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-        line-height: 1.5;
-        height: calc(16px* 1.3* 2);
-    }
-    .blogReader * {
-        font-size: 1rem;
-        font-weight: normal;
-        margin-bottom: 0;
-    }
-
-    /* {
-    box-sizing: border-box;
-    } */
-
-    #myInput {
-        background-image: url('/css/searchicon.png');
-        background-position: 10px 10px;
-        background-repeat: no-repeat;
-        width: 100%;
-        font-size: 16px;
-        padding: 12px 12px 40px;
-        border: 1px solid #ddd;
-        margin-bottom: 12px;
-    }
-
-    #myTable {
-        border-collapse: collapse;
-        width: 100%;
-        border: 1px solid #ddd;
-        font-size: 18px;
-    }
-
-    #myTable th,
-    #myTable td {
-        text-align: left;
-        padding: 12px;
-    }
-
-    #myTable tr {
-        border-bottom: 1px solid #ddd;
-    }
-
-    #myTable tr.header,
-    #myTable tr:hover {
-        background-color: #f1f1f1;
-    }
-
-    @media (max-width: 450px) {
-        #myTable img {
-            width: 150px !important;
-            height: 100px !important;
-        }
-
-        #myTable .title {
-            max-height: 100px;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
-        }
-    }
-</style>
-
-<!-- top cổ phiếu biến động -->
-<section class="container">
-    <div class="table-responsive">
-        <!-- Màn hình danh sách top chỉ số tài chính-->
-        <div id="table-container-loadListTop"></div>
     </div>
-</section>
-<!-- Start Banner Hero -->
-<div class="banner-wrapper">
-    <!-- Màn hình danh sách top chỉ số tài chính
-    <div class="table-responsive">
-        <div id="table-container-loadListTop"></div>
-    </div> -->
-    <!-- top cổ phiếu biến động -->
-    <section class="container">
-        <div class="table-responsive">
-            <div id="table-container-loadListTop"></div>
+
+    <!-- PHẦN 2.5: TRÌNH DIỄN GIAO DIỆN TERMINAL -->
+    <section class="product-showcase">
+        <div class="showcase-header">
+            <h2 class="gradient-text">Hệ Sinh Thái Phân Tích Đầu Tư Đỉnh Cao</h2>
+            <p>Đồng hành cùng hàng nghìn nhà đầu tư Việt Nam làm chủ dòng tiền thông minh bằng bộ công cụ dữ liệu chuẩn
+                quốc tế.</p>
+        </div>
+        <div class="showcase-mockup-wrapper">
+            <img src="/assetsFT/images/fintop_terminal_mockup.png" alt="FinTop DATA Terminal Dashboard" class="mockup-img">
         </div>
     </section>
-    <!-- tra cứu cổ phiếu -->
-    <section class="container pt-3" style="background:#b56c6cb5">
-        <div class="mb-3 d-lg-flex gx-5" style="background-color: #fff;">
-            <div class="col-md-8 pt-3" style="border-right: 1px solid #bdbdbd;">
-                <div class="col-md-12 mb-3 row">
-                    <span><b class="text-uppercase">tra cứu cổ phiếu</b></span>
-                </div>
-                <div class="row">@include('client.home.loadlist')</div>
-            </div>
-            <div class="col-md-4 pt-3">
-                <div class="col-md-12 mb-3 row">
-                    <span><b class="text-uppercase">Hội viên V.I.P</b></span>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 pt-sm-0 pt-3 px-xl-3 dangky-hoivien dangky-hoivien-home pb-2">
-                        <div class="pricing-table card card-rounded shadow-sm border-0" style="box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3) !important">
-                            <div class="pricing-table-body card-body text-center">
-                                <div class="bg-secondary" style="border-radius: 0.5em;">
-                                    <img src="{{url('/clients/img/diamond.png')}}" alt="Image" style="height: 63px;width: 63px;" class="py-2">
-                                    <h2 class="pricing-table-heading h5 semi-bold-600 pb-3" style="color:white"><div class="txt-first">HỘI VIÊN</div> <div class="txt-second pt-3">KIM CƯƠNG</div></h2>
-                                </div>
-                                <div class="pricing-table-footer pt-2">
-                                    <a style="background: #165c38;color: #ffffff;font-weight: 500;" onclick="JS_UpgradeAcc.viewInfo('KIM_CUONG')" class="btn rounded-pill px-4 btn-outline-light light-300">Chọn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 pt-sm-0 pt-3 px-xl-3 dangky-hoivien pb-2">
-                        <div class="pricing-table card h-100 card-rounded shadow-sm border-0" style="box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3) !important">
-                            <div class="pricing-table-body card-body text-center">
-                                <div class="bg-secondary" style="border-radius: 0.5em;">
-                                    <i style="color:#ffbb2e" class="pricing-table-icon display-5 bx bx-package py-2"></i>
-                                    <h2 class="pricing-table-heading h5 semi-bold-600 pb-3" style="color:white"><div class="txt-first">HỘI VIÊN</div> <div class="txt-second pt-3">VÀNG</div></h2>
-                                </div>
-                                <div class="pricing-table-footer pt-2">
-                                    <a style="background: #165c38;color: #ffffff;font-weight: 500;" onclick="JS_UpgradeAcc.viewInfo('VIP2')" class="btn rounded-pill px-4 btn-outline-light light-300">Chọn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 pt-sm-0 pt-3 px-xl-3 dangky-hoivien pb-2">
-                        <div class="pricing-table card h-100 card-rounded shadow-sm border-0" style="box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3) !important">
-                            <div class="pricing-table-body card-body text-center">
-                                <div class="bg-secondary" style="border-radius: 0.5em;">
-                                    <i style="color:#f2f2f2" class="pricing-table-icon display-5 bx bx-package py-2"></i>
-                                    <h2 class="pricing-table-heading h5 semi-bold-600 pb-3" style="color:white"><div class="txt-first">HỘI VIÊN</div> <div class="txt-second pt-3">BẠC</div></h2>
-                                </div>
-                                <div class="pricing-table-footer pt-2">
-                                    <a style="background: #165c38;color: #ffffff;font-weight: 500;" onclick="JS_UpgradeAcc.viewInfo('VIP1')" class="btn rounded-pill px-4 btn-outline-light light-300">Chọn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 pt-sm-0 pt-3 px-xl-3 dangky-hoivien pb-2">
-                        <div class="pricing-table card h-100 card-rounded shadow-sm border-0" style="box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.3) !important">
-                            <div class="pricing-table-body card-body text-center">
-                                <div class="bg-secondary" style="border-radius: 0.5em;">
-                                    <i style="color:#7ff3ff" class="pricing-table-icon display-5 bx bx-package py-2"></i>
-                                    <h2 class="pricing-table-heading h5 semi-bold-600 pb-3" style="color:white"><div class="txt-first">HỘI VIÊN</div> <div class="txt-second pt-3">TIÊU CHUẨN</div></h2>
-                                </div>
-                                <div class="pricing-table-footer pt-2">
-                                    <a style="background: #165c38;color: #ffffff;font-weight: 500;" onclick="JS_UpgradeAcc.viewInfo('TIEU_CHUAN')" class="btn rounded-pill px-4 btn-outline-light light-300">Chọn</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+    <!-- PHẦN 3: THỐNG KÊ SỐ LIỆU -->
+    <section class="stats-section">
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="1500" data-suffix="+">0</h3>
+            <p>Cổ phiếu được Cover</p>
         </div>
-        <div class="mt-3 mb-3 d-lg-flex gx-5" style="background-color: #fff;">
-            <div class="col-md-8 pt-3" style="border-right: 1px solid #bdbdbd;">
-                <div class="col-md-12 mb-3 row">
-                    <span><b>V.I.P ĐẦU TƯ (BCPT VIP)</b></span>
-                </div>
-                <div id="style-1" class="homeTTTH row vip" 
-                @if(!Auth::check()) 
-                    onclick="JS_Home.checkLogin()" 
-                @elseif(((isset($_SESSION['id']) && $_SESSION['role'] == 'USERS' && $_SESSION['account_type_vip'] != 'VIP1' && $_SESSION['account_type_vip'] != 'VIP2')))
-                    onclick="JS_Home.checkVIP()" 
-                @endif
-                >
-                @if(isset($VIP))
-                    @foreach ($VIP as $key => $data)
-                        @php Carbon::setLocale('vi');$now = Carbon::now(); $created_at = Carbon::create($data->created_at) @endphp
-                        @if(!Auth::check()) 
-                            <div class="col-md-4 about-list mb-3 bcptVIP" style="pointer-events: none;">
-                        @elseif(((isset($_SESSION['id']) && $_SESSION['role'] == 'USERS' && $_SESSION['account_type_vip'] != 'VIP1' && $_SESSION['account_type_vip'] != 'VIP2')))
-                             <div class="col-md-4 about-list mb-3 bcptVIP" style="pointer-events: none;">
-                        @else
-                             <div class="col-md-4 about-list mb-3 bcptVIP">
-                        @endif
-                            <div style="box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.4); border-radius: 7px;">
-                            <div class="about-img">
-                                <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                    @if((isset($data['type_blog']) && $data['type_blog'] == 'VIP'))
-                                    <h1 style="position: absolute;right:0">
-                                        <img src="{{url('/clients/img/vip.png')}}" class="image-vip" alt="Image" style="height: 60px;width: 50px;object-fit: cover;">
-                                    </h1>
-                                    @endif
-                                    <img class="card-img-top" src="{{url('/file-image-client/blogs/')}}/{{ !empty($data->imageBlog[0]->name_image)?$data->imageBlog[0]->name_image:'' }}" style="height: 200px;width: 100%;object-fit: cover;" alt="...">
-                                </a>
-                            </div>
-                            <div class="about-content">
-                                <div><i>{{ $data->users->name ?? '' }} </i></div>
-                                <div><i>{{$created_at->diffForHumans($now)}}   <span style="font-size: 10px;color: #9f9292;"><i class="far fa-eye"></i> {{ $data->view_click }}</span></i></div>
-                                <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                    <h5 class="card-title light-600 text-dark">{{ $data->detailBlog->title }}</h5>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-                </div>
-            </div>
-            <div class="col-md-4 pt-3" style="background-color: #ecedee;">
-                <div class="col-md-12 mb-3 about-title">
-                    <span style="padding-left: 15px;"><b>THỊ TRƯỜNG TỔNG HỢP</b></span>
-                </div>
-                <div id="style-1" class="homeTTTH homeTTTHScroll" style="padding-left:15px;max-height:600px !important">
-                    <ul class="list-group">
-                        @if(isset($TTTH))
-                        @foreach ($TTTH as $key => $data)
-                        @php
-                        Carbon::setLocale('vi');$now = Carbon::now();
-                        $created_at = Carbon::create($data->created_at);
-                        @endphp
-                        <div class="col-sm-6 col-lg-12  ttth text-decoration-none {{ $data->code_category }}">
-                            <div class="ttth-content d-lg-flex gx-5">
-                                <!-- display: flex;align-items: center;justify-content: center; -->
-                                <div class="col-lg-3 about-img" style="align-items: right;justify-content: right;position: relative;">
-                                    <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                        @if((isset($data['type_blog']) && $data['type_blog'] == 'VIP'))
-                                        <h1 style="position: absolute;right:0">
-                                            <img src="{{url('/clients/img/vip.png')}}" class="image-vip" alt="Image" style="height: 60px;width: 50px;object-fit: cover;">
-                                        </h1>
-                                        @endif
-                                        <img class="card-img-top" src="{{url('/file-image-client/blogs/')}}/{{ !empty($data->imageBlog[0]->name_image)?$data->imageBlog[0]->name_image:'' }}" style="height: 70px;width: 100%;object-fit: cover;" alt="...">
-                                    </a>
-                                </div>
-                                <div class="col-lg-8 about-content">
-                                    <i>{{$created_at->diffForHumans($now)}} <span style="padding-left: 10px;font-size: 10px;color: #9f9292;"><i class="far fa-eye"></i> {{ $data->view_click }}</span></i>
-                                    <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                        <h6 class="card-title light-600 text-dark">{{ $data->detailBlog->title }}</h6>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;" class="my-3">
-                        @endforeach
-                        @endif
-                    </ul>
-                </div>
-            </div>
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="50" data-suffix="+">0</h3>
+            <p>Chuyên gia Thị trường</p>
         </div>
-        <div class="mt-3 mb-3 d-lg-flex gx-5" style="background-color: #fff;">
-            <div class="col-md-8 pt-3" style="border-right: 1px solid #bdbdbd;">
-                <div class="col-md-12 mb-3 row">
-                    <span><b>NGÀNH ĐẦU TƯ (BCPT NGÀNH)</b></span>
-                </div>
-                <div id="style-1" class="homeTTTH row vip homeBCPTN">
-                    @if(isset($BCPTN))
-                    @foreach ($BCPTN as $key => $data)
-                    @php Carbon::setLocale('vi');$now = Carbon::now(); $created_at = Carbon::create($data->created_at) @endphp
-                    <div class="col-sm-6 col-lg-12  bcptn text-decoration-none {{ $data->code_category }} mb-3">
-                        <div class="bcptn-content d-lg-flex gx-5">
-                            <!-- display: flex;align-items: center;justify-content: center; -->
-                            <div class="col-lg-3 about-img" style="align-items: right;justify-content: right;position: relative;">
-                                <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                    @if((isset($data['type_blog']) && $data['type_blog'] == 'VIP'))
-                                    <h1 style="position: absolute;right:0">
-                                        <img src="{{url('/clients/img/vip.png')}}" class="image-vip" alt="Image" style="height: 60px;width: 50px;object-fit: cover;">
-                                    </h1>
-                                    @endif
-                                    <img class="card-img-top" src="{{url('/file-image-client/blogs/')}}/{{ !empty($data->imageBlog[0]->name_image)?$data->imageBlog[0]->name_image:'' }}" style="height: 140px;width: 100%;object-fit: cover;" alt="...">
-                                </a>
-                            </div>
-                            <div class="col-lg-9 about-content">
-                                <i>{{ $data->users->name ?? '' }} | {{$created_at->diffForHumans($now)}} <span style="padding-left: 10px;font-size: 10px;color: #9f9292;"><i class="far fa-eye"></i> {{ $data->view_click }}</span></i>
-                                <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                    <h6 class="card-title light-600 text-dark">{{ $data->detailBlog->title }}</h6>
-                                </a>
-                                <div class="blogReader">{!! $data->detailBlog->decision !!}</div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    @endif
-                </div>
+        <div class="stat-item">
+            <h3 class="stat-number" data-target="98" data-suffix="%">0</h3>
+            <p>Độ chính xác AI Model</p>
+        </div>
+    </section>
+
+    <!-- PHẦN 4: BẢNG GIÁ HỘI VIÊN -->
+    <section class="pricing-section" id="pricing">
+        <h2 class="gradient-text" style="position: relative; z-index: 1;">Chọn Gói Hội Viên</h2>
+        <p style="margin-top: 1rem; position: relative; z-index: 1;">Nâng cấp trải nghiệm đầu tư của bạn ngay hôm nay
+        </p>
+
+        <div class="pricing-grid">
+            <!-- GÓI STANDARD - Xanh lam -->
+            <div class="pricing-card liquid-glass-card card-standard">
+                <div class="pricing-title">STANDARD</div>
+                <div class="pricing-subtitle" style="color: #7dd3fc;">(Tiêu chuẩn)</div>
+                <ul class="pricing-features">
+                    <li><span class="check-icon">✦</span> Tra cứu CP</li>
+                    <li><span class="check-icon">✦</span> Báo cáo phân tích</li>
+                    <li><span class="check-icon">✦</span> Tool & Dữ liệu cơ bản</li>
+                </ul>
+                <button class="btn-tier">Đăng ký</button>
             </div>
-            <div class="col-md-4 pt-3" style="background-color: #ecedee;">
-                <div class="col-md-12 mb-3 about-title">
-                    <span style="padding-left: 15px;"><b>BCPT CỔ PHIẾU DOANH NGHIỆP</b></span>
-                </div>
-                <div id="style-1" class="homeTTTH homeBCPTCPDN" style="padding-left:15px;max-height:500px !important">
-                    <ul class="list-group">
-                        @if(isset($BCPTDN))
-                        @foreach ($BCPTDN as $key => $data)
-                        @php
-                        Carbon::setLocale('vi');$now = Carbon::now();
-                        $created_at = Carbon::create($data->created_at);
-                        @endphp
-                        <div class="col-sm-6 col-lg-12  ttth text-decoration-none {{ $data->code_category }}">
-                            <div class="ttth-content d-lg-flex gx-5">
-                                <!-- display: flex;align-items: center;justify-content: center; -->
-                                <div class="col-lg-3 about-img" style="align-items: right;justify-content: right;position: relative;">
-                                    <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                        @if((isset($data['type_blog']) && $data['type_blog'] == 'VIP'))
-                                        <h1 style="position: absolute;right:0">
-                                            <img src="{{url('/clients/img/vip.png')}}" class="image-vip" alt="Image" style="height: 60px;width: 50px;object-fit: cover;">
-                                        </h1>
-                                        @endif
-                                        <img class="card-img-top" src="{{url('/file-image-client/blogs/')}}/{{ !empty($data->imageBlog[0]->name_image)?$data->imageBlog[0]->name_image:'' }}" style="height: 70px;width: 100%;object-fit: cover;" alt="...">
-                                    </a>
-                                </div>
-                                <div class="col-lg-8 about-content">
-                                    <i>{{$created_at->diffForHumans($now)}} <span style="padding-left: 10px;font-size: 10px;color: #9f9292;"><i class="far fa-eye"></i> {{ $data->view_click }}</span></i>
-                                    <a href="{{url('/client/about/reader/') . '/' . $data->id}}">
-                                        <h6 class="card-title light-600 text-dark">{{ $data->detailBlog->title }}</h6>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;" class="mb-3">
-                        @endforeach
-                        @endif
-                    </ul>
-                </div>
+
+            <!-- GÓI PRO - Tím -->
+            <div class="pricing-card liquid-glass-card card-pro">
+                <div class="pricing-title">PRO ⭐</div>
+                <div class="pricing-subtitle" style="color: #c4b5fd;">(Chuyên nghiệp)</div>
+                <ul class="pricing-features">
+                    <li><span class="check-icon">✦</span> Bộ Lọc CP</li>
+                    <li><span class="check-icon">✦</span> Pro Analysis</li>
+                    <li><span class="check-icon">✦</span> Pro Data</li>
+                </ul>
+                <button class="btn-tier">Đăng ký</button>
+            </div>
+
+            <!-- GÓI V.I.P - Xanh ngọc -->
+            <div class="pricing-card liquid-glass-card card-vip">
+                <div class="pricing-title">V.I.P</div>
+                <div class="pricing-subtitle" style="color: #6ee7b7;">(Cao cấp)</div>
+                <ul class="pricing-features">
+                    <li><span class="check-icon">✦</span> Tín Hiệu CG</li>
+                    <li><span class="check-icon">✦</span> Danh Mục CG</li>
+                    <li><span class="check-icon">✦</span> Pro Analysis</li>
+                </ul>
+                <button class="btn-tier">Đăng ký</button>
+            </div>
+
+            <!-- GÓI DIAMOND - Vàng -->
+            <div class="pricing-card liquid-glass-card card-diamond">
+                <div class="pricing-title">DIAMOND 💎</div>
+                <div class="pricing-subtitle" style="color: #fcd34d;">(Kim cương)</div>
+                <ul class="pricing-features">
+                    <li><span class="check-icon">✦</span> Đặc quyền V.I.P</li>
+                    <li><span class="check-icon">✦</span> Đặc quyền PRO</li>
+                    <li><span class="check-icon">✦</span> Cố vấn 1-1</li>
+                </ul>
+                <button class="btn-tier">Đăng ký</button>
             </div>
         </div>
     </section>
-</div>
-<div style="clear:both"></div>
-<div class="modal" id="reader" role="dialog"></div>
-<div class="modal" id="formmodal" role="dialog"></div>
-<div class="modal" id="formmodal_res" role="dialog"></div>
 
-<!-- End Recent Work -->
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
-<script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_About.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_Home.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_UpgradeAcc.js') }}"></script>
-<script src='../assets/js/jquery.js'></script>
-<script type="text/javascript">
-    var baseUrl = "{{ url('') }}";
-    var JS_About = new JS_About(baseUrl, 'client', 'about', 'home');
-    var JS_UpgradeAcc = new JS_UpgradeAcc(baseUrl, 'client', 'upgradeAcc', 'home');
-    var JS_Home = new JS_Home(baseUrl, 'client', 'home');
-    $(document).ready(function($) {
-        JS_Home.loadIndex(baseUrl);
-    })
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!-- PHẦN 5: ĐỘI NGŨ CHUYÊN GIA -->
+    <section class="team-section" id="team">
+        <h2 class="gradient-text" style="position: relative; z-index: 1;">Đội Ngũ Chuyên Gia VPS</h2>
+        <p
+            style="margin-top: 1rem; position: relative; z-index: 1; color: #94A3B8; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Hợp tác độc quyền cùng Chuyên gia VPS trên nền tảng Công nghệ & Dữ liệu FinTop DATA
+        </p>
 
+        <!-- Hàng 1: CEO -->
+        <div class="team-row team-row-1">
+            <div class="team-member">
+                <div class="team-avatar-wrapper avatar-gold">
+                    <img src="/assetsFT/images/anh_Hai.png" alt="Nguyễn Đình Hải" class="team-avatar">
+                </div>
+                <h3 class="team-name">Nguyễn Đình Hải</h3>
+                <p class="team-role">Founder & CEO FinTop Ltd.</p>
+                <p class="team-desc">Chuyên gia Phân tích Chiến lược & QTRR.</p>
+            </div>
+        </div>
 
-<!-- <script type="text/javascript" src="{{ URL::asset('dist\js\backend\pages\JS_System_Security.js') }}"></script>
-<script>
-      var JS_System_Security = new JS_System_Security();
-          $(document).ready(function($) {
-                 JS_System_Security.security();
-      })
-</script> -->
+        <!-- Hàng 2: 2 thành viên -->
+        <div class="team-row team-row-2">
+            <div class="team-member">
+                <div class="team-avatar-wrapper avatar-cyan">
+                    <img src="/assetsFT/images/anh_Linh.png" alt="Trần Khánh Linh" class="team-avatar">
+                </div>
+                <h3 class="team-name">Trần Khánh Linh</h3>
+                <p class="team-role">Co-Founder FinTop, Dữ liệu FinTop.Data</p>
+                <p class="team-desc">Chuyên gia NC&PT Thị trường chứng khoán.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar-wrapper avatar-pink">
+                    <img src="/assetsFT/images/chi_Hanh.png" alt="Nguyễn Minh Hạnh" class="team-avatar">
+                </div>
+                <h3 class="team-name">Nguyễn Minh Hạnh</h3>
+                <p class="team-role">Chuyên gia Phân tích Ngành - Vĩ mô FinTop</p>
+                <p class="team-desc">Thạc sĩ Kinh tế chiến lược (FSU JENA, Đức).</p>
+            </div>
+        </div>
 
+        <!-- Hàng 3: 2 thành viên -->
+        <div class="team-row team-row-2">
+            <div class="team-member">
+                <div class="team-avatar-wrapper avatar-green">
+                    <img src="/assetsFT/images/anh_Tu.png" alt="Trần Thiện Tú" class="team-avatar">
+                </div>
+                <h3 class="team-name">Trần Thiện Tú</h3>
+                <p class="team-role">Chuyên gia NC&PT Cổ phiếu DN</p>
+                <p class="team-desc">Nghiên cứu chuyên động Ngành, Phân tích triển vọng tăng trưởng Doanh nghiệp.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-avatar-wrapper avatar-purple">
+                    <img src="/assetsFT/images/anh_Dung.png" alt="Mai Tiến Dũng" class="team-avatar">
+                </div>
+                <h3 class="team-name">Mai Tiến Dũng</h3>
+                <p class="team-role">Chuyên gia NC&PT Cổ phiếu DN</p>
+                <p class="team-desc">Thạc sĩ Tài chính số - FinTech (Loughborough University, London, Anh).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: GIỚI THIỆU FINTOP -->
+    <section class="about-section" id="about">
+        <h2 class="gradient-text" style="position: relative; z-index: 1;">Giới Thiệu FINTOP</h2>
+        <div class="about-description">
+            <p>
+                <strong style="color: #c084fc;">Công Ty TNHH Đầu Tư & Phát Triển FINTOP</strong> là doanh nghiệp
+                <em>Fintech & Data</em> hoạt động và định hướng phát triển trong lĩnh vực
+                <strong style="color: #38bdf8;">Công nghệ Tài chính</strong>,
+                Nghiên cứu - Phân tích - Xử lý - Xuất bản Dữ liệu với các
+                <strong style="color: #f59e0b;">"Mô hình tiên tiến" (Model)</strong> chuẩn hóa cho hiệu quả cao,
+                ứng dụng <strong style="color: #34d399;">"Công nghệ AI"</strong> trong phân tích, nghiên cứu cùng
+                Đội ngũ Chuyên gia giàu kinh nghiệm nhằm mang đến những công cụ và dữ liệu bổ trợ mạnh mẽ
+                cho hoạt động phân tích, nghiên cứu và ra quyết định đầu tư.
+            </p>
+            <p style="margin-top: 1rem;">
+                FINTOP không ngừng mở rộng, hợp tác phát triển, cung cấp các sản phẩm/dịch vụ trọng yếu,
+                đa dạng về dữ liệu cho thị trường <strong style="color: #c084fc;">Tài chính & Đầu tư</strong>.
+            </p>
+        </div>
+
+        <!-- Thẻ Đánh Giá Từ Người Dùng -->
+        <div class="testimonial-grid">
+            <div class="testimonial-card testimonial-cyan">
+                <div class="testimonial-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    FinTop là đơn vị uy tín chuyên cung cấp dữ liệu, kiến thức thực tế, chiến lược đầu tư và các báo cáo
+                    phân tích kịp thời, vô cùng hữu dụng cho nhà đầu tư và cả các chuyên gia về chứng khoán. Với chiến
+                    lược và cách làm chuyên nghiệp, đặc biệt Đội ngũ FinTop với nhiều năm kinh nghiệm trên thị trường sẽ
+                    giúp nhà đầu tư tối ưu hiệu quả và đạt được lợi nhuận tốt nhất trong quá trình giao dịch. Với sự hỗ
+                    trợ từ FinTop nhà đầu tư sẽ thông thái, chủ động với việc đầu tư và kỷ luật với chiến lược giao dịch
+                    đã đề ra.
+                    <span class="quote-mark">&rdquo;</span>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/assetsFT/images/anh_Long.png" alt="Anh Lê Văn Long" class="testimonial-avatar">
+                    <div>
+                        <h4 class="testimonial-name">Anh Lê Văn Long</h4>
+                        <p class="testimonial-role">Giám đốc Tư vấn đầu tư — Công ty Cổ phần Chứng khoán VPS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card testimonial-pink">
+                <div class="testimonial-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    FINTOP là nơi tập hợp tinh hoa của đội ngũ chuyên gia trẻ, năng động, có kinh nghiệm thực chiến trên
+                    thị trường chứng khoán, vừa có kiến thức chuyên sâu về phân tích cơ bản và vừa có độ nhạy bén trong
+                    phân tích kỹ thuật. Đây là một trang web uy tín, đáng tin cậy, giúp cung cấp các phân tích và cập
+                    nhật thị trường, chọn lọc cổ phiếu. Ngoài ra, đội ngũ chuyên gia của FINTOP cũng thường xuyên cung
+                    cấp các phân tích chiến lược đầu tư hay có các báo cáo phân tích ngành và phân tích doanh nghiệp,
+                    giúp cho nhà đầu tư có căn cứ để đưa ra các quyết định đầu tư sáng suốt. Nếu nhà đầu tư chưa có
+                    nhiều kiến thức, kinh nghiệm, hoặc không có nhiều thời gian để tìm hiểu và nghiên cứu về chứng khoán
+                    thì FINTOP chính là người đồng hành tuyệt vời của nhà đầu tư.
+                    <span class="quote-mark">&rdquo;</span>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/assetsFT/images/chi_Helena.png" alt="Chị Helena Hạnh Đặng" class="testimonial-avatar">
+                    <div>
+                        <h4 class="testimonial-name">Chị Helena Hạnh Đặng</h4>
+                        <p class="testimonial-role">Chuyên gia Đào tạo Tài chính cá nhân — Khách hàng đối tác</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card testimonial-green">
+                <div class="testimonial-quote">
+                    <span class="quote-mark">&ldquo;</span>
+                    FinTop là một đội ngũ chuyên nghiệp, không ngừng nghiên cứu, học hỏi, cầu thị và luôn luôn lắng nghe
+                    khách hàng, đối tác. Những báo cáo phân tích, đánh giá của Team mang lại nhiều hữu ích cho mình là
+                    một người công tác trong lĩnh vực Tài chính với các báo cáo phân tích ngành, dữ liệu kinh tế vĩ mô,
+                    phân tích đánh giá doanh nghiệp. Đặc biệt có phần tra cứu xu hướng cổ phiếu rất hay bên cạnh chia sẻ
+                    cẩm nang, phương pháp đầu tư để mọi người cùng tìm hiểu. Chúc FinTop Team sẽ tiếp tục phát huy và
+                    luôn có những báo cáo phân tích chất lượng nhất đến khách hàng.
+                    <span class="quote-mark">&rdquo;</span>
+                </div>
+                <div class="testimonial-author">
+                    <img src="/assetsFT/images/chi_Lich.png" alt="Chị Trần Thị Hồng Lịch" class="testimonial-avatar">
+                    <div>
+                        <h4 class="testimonial-name">Chị Trần Thị Hồng Lịch</h4>
+                        <p class="testimonial-role">Nhà Đầu Tư — Khách Hàng Đối Tác FinTop</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 @endsection

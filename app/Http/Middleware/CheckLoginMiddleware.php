@@ -18,19 +18,35 @@ class CheckLoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && !empty($_SESSION["role"]) && ($_SESSION["role"] == 'ADMIN' || $_SESSION["role"] == 'MANAGE' || 
-        $_SESSION["role"] == 'CV_ADMIN' || $_SESSION["role"] == 'CV_PRO' || $_SESSION["role"] == 'CV_BASIC' || $_SESSION["role"] == 'SALE_ADMIN' || $_SESSION["role"] == 'SALE_BASIC'
-             || $_SESSION['role'] == 'CV_ADMIN,SALE_ADMIN' || $_SESSION['role'] == 'CV_ADMIN,SALE_BASIC' 
-             || $_SESSION['role'] == 'CV_PRO,SALE_ADMIN' || $_SESSION['role'] == 'CV_PRO,SALE_BASIC'
-             || $_SESSION['role'] == 'CV_BASIC,SALE_ADMIN'|| $_SESSION['role'] == 'CV_BASIC,SALE_BASIC')){
-            return $next($request);
-        };
-        // Auth::logout();
-        if (!empty($_SESSION['id'])) {
-            session_destroy();
+        $user = Auth::user();
+
+        if (!$user) {
+            return redirect()->route('login');
         }
+
+        $roles = [
+            'ADMIN', 'MANAGE',
+            'CV_ADMIN', 'CV_PRO', 'CV_BASIC',
+            'SALE_ADMIN', 'SALE_BASIC',
+            'CV_ADMIN,SALE_ADMIN',
+            'CV_ADMIN,SALE_BASIC',
+            'CV_PRO,SALE_ADMIN',
+            'CV_PRO,SALE_BASIC',
+            'CV_BASIC,SALE_ADMIN',
+            'CV_BASIC,SALE_BASIC'
+        ];
+
+        // check role trong Auth, KHÔNG dùng $_SESSION
+        if (in_array($user->role, $roles)) {
+            return $next($request);
+        }
+
+        // logout đúng Laravel
+        Auth::logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect()->route('login');
     }
 }

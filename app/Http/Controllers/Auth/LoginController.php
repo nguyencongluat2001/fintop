@@ -127,30 +127,42 @@ class LoginController extends Controller
              || $user->role == 'CV_PRO,SALE_ADMIN' || $user->role == 'CV_PRO,SALE_BASIC'
              || $user->role == 'CV_BASIC,SALE_ADMIN'|| $user->role == 'CV_BASIC,SALE_BASIC'
              ){
-                $_SESSION["role"] = $user->role;
-                $_SESSION["id_personnel"] = $getUsers->id_personnel;
-                $_SESSION["id"]   = $getUsers->id;
-                $_SESSION["email"]   = $email;
-                $_SESSION["name"]   = $user->name;
-                $_SESSION["account_type_vip"]   = $getUsers->account_type_vip;
-                $_SESSION["color_view"] = !empty($getInfo->color_view)?$getInfo->color_view:2;
                 // menu sidebar
                 $sideBarConfig = config('SidebarSystem');
                 $sideBar = $this->checkPermision($sideBarConfig , $user);
-                $_SESSION["sidebar"] = $sideBar;
+                // Laravel session chuẩn
+                session([
+                    'role' => $user->role,
+                    'id_personnel' => $getUsers->id_personnel,
+                    'id' => $getUsers->id,
+                    'email' => $email,
+                    'name' => $user->name,
+                    'account_type_vip' => $getUsers->account_type_vip,
+                    'color_view' => $getInfo->color_view ?? 2,
+                    'sidebar' => $sideBar,
+                ]);
+
                 Auth::login($user);
-                // return redirect('system/home/index');
+                $request->session()->regenerate();
                 return redirect('/');
             }elseif($user->role == 'USERS' || $user->role == 'USER'){
-                $_SESSION["role"] = $user->role;
-                $_SESSION["id_personnel"] = $getUsers->id_personnel;
-                $_SESSION["id"]   = $getUsers->id;
-                $_SESSION["email"]   = $email;
-                $_SESSION["name"]   = $user->name;
-                $_SESSION["account_type_vip"]   = $getUsers->account_type_vip;
-                $_SESSION["color_view"] = !empty($getInfo->color_view)?$getInfo->color_view:2;
-                $checkPrLogin = $this->permission_login($email);
+                // menu sidebar
+                $sideBarConfig = config('SidebarSystem');
+                $sideBar = $this->checkPermision($sideBarConfig , $user);
+                // Laravel session chuẩn
+                session([
+                    'role' => $user->role,
+                    'id_personnel' => $getUsers->id_personnel,
+                    'id' => $getUsers->id,
+                    'email' => $email,
+                    'name' => $user->name,
+                    'account_type_vip' => $getUsers->account_type_vip,
+                    'color_view' => $getInfo->color_view ?? 2,
+                    'sidebar' => $sideBar,
+                ]);
+
                 Auth::login($user);
+                $request->session()->regenerate();
                 return redirect('/');
             }
         }
@@ -168,30 +180,39 @@ class LoginController extends Controller
              || $user->role == 'CV_PRO,SALE_ADMIN' || $user->role == 'CV_PRO,SALE_BASIC'
              || $user->role == 'CV_BASIC,SALE_ADMIN'|| $user->role == 'CV_BASIC,SALE_BASIC'
              ){
-                $_SESSION["role"] = $user->role;
-                $_SESSION["id_personnel"] = $getUsers->id_personnel;
-                $_SESSION["id"]   = $getUsers->id;
-                $_SESSION["email"]   = $email;
-                $_SESSION["name"]   = $user->name;
-                $_SESSION["account_type_vip"]   = $getUsers->account_type_vip;
-                $_SESSION["color_view"] = !empty($getInfo->color_view)?$getInfo->color_view:2;
                 // menu sidebar
                 $sideBarConfig = config('SidebarSystem');
                 $sideBar = $this->checkPermision($sideBarConfig , $user);
-                $_SESSION["sidebar"] = $sideBar;
+                // Laravel session chuẩn
+                session([
+                    'role' => $user->role,
+                    'id_personnel' => $getUsers->id_personnel,
+                    'id' => $getUsers->id,
+                    'email' => $email,
+                    'name' => $user->name,
+                    'account_type_vip' => $getUsers->account_type_vip,
+                    'color_view' => $getInfo->color_view ?? 2,
+                    'sidebar' => $sideBar,
+                ]);
+
                 Auth::login($user);
-                return redirect('/');
+                $request->session()->regenerate();
+                return redirect('/system/home/index');
             }elseif($user->role == 'USERS' || $user->role == 'USER'){
-                $_SESSION["role"] = $user->role;
-                $_SESSION["id_personnel"] = $getUsers->id_personnel;
-                $_SESSION["id"]   = $getUsers->id;
-                $_SESSION["email"]   = $email;
-                $_SESSION["name"]   = $user->name;
-                $_SESSION["account_type_vip"]   = $getUsers->account_type_vip;
-                $_SESSION["color_view"] = !empty($getInfo->color_view)?$getInfo->color_view:2;
+                session([
+                    'role' => $user->role,
+                    'id_personnel' => $getUsers->id_personnel,
+                    'id' => $getUsers->id,
+                    'email' => $email,
+                    'name' => $user->name,
+                    'account_type_vip' => $getUsers->account_type_vip,
+                    'color_view' => $getInfo->color_view ?? 2,
+                    'sidebar' => $sideBar,
+                ]);
                 $checkPrLogin = $this->permission_login($email);
                 Auth::login($user);
-                return redirect('/');
+                $request->session()->regenerate();
+                return redirect('/system/home/index');
             }
         } else {
             $data['message'] = "Sai tên đăng nhập hoặc mật khẩu!";
