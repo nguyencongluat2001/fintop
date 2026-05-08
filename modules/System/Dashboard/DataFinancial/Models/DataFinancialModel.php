@@ -17,21 +17,26 @@ class DataFinancialModel extends Model
     protected $fillable = [
         'id',
         'user_id',
+
         'code_cp',
         'exchange',
         'code_category',
-        'ratings_TA',
+
         'identify_trend',
-        'act',
+        'status_model',
+        'model',
+
+        'trading_price_resist',
         'trading_price_range',
         'stop_loss_price_zone',
+
+        'ratings_TA',
         'ratings_FA',
-        'url_link',
+
         'status',
         'order',
-        'user_take_on',
-        'created_at',
-        'updated_at'
+
+        'user_take_on'
     ];
 
     public function filter($query, $param, $value)
@@ -41,23 +46,12 @@ class DataFinancialModel extends Model
                 $this->value = $value;
                 return $query->where(function ($query) {
                     $query->where('code_cp', 'like', '%' . $this->value . '%')
-                          ->orWhere('act', 'like', '%' . $this->value . '%')
                           ->orwhereRelation('users','name', 'like', '%' . $this->value . '%');
                 });
                 return $query;
             case 'code_category':
                 if(!empty($value)){
                     $query->whereIn('code_category', $value);
-                    return $query;
-                }
-            case 'act':
-                if(!empty($value)){
-                    $query->where('act', $value);
-                    return $query;
-                }
-            case 'type':
-                if(!empty($value)){
-                    $query->whereIn('act', $value);
                     return $query;
                 }
             case 'code_act':

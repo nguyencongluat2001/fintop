@@ -81,8 +81,7 @@ use Modules\System\Recordtype\Helpers\WorkflowHelper;
 				<col width="6%"> <!-- vung gia cat lo -->
 				<col width="5%"> <!-- xep hang FA -->
 				<col width="5%"> <!-- dien tich -->
-				<col width="5%"> <!-- thu tu -->
-				<col width="5%"> <!-- tin hieu mua -->
+				<col width="5%"> <!-- dien tich -->
 				<col width="3%"> <!-- # -->
 			</colgroup>
 			<thead>
@@ -94,13 +93,13 @@ use Modules\System\Recordtype\Helpers\WorkflowHelper;
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Nhóm nghành HĐKD</b></td>
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Người đảm nhận</b></td>
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Thời gian cập nhật</b></td>
-					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Xếp hạng TA</b></td>
+					<!-- <td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Xếp hạng TA</b></td> -->
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Xu hướng CP</b></td>
-					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Tín hiệu <br> hành động</b></td>
-					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Vùng giá giao dịch</b></td>
+					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Trạng thái <br> Model </b></td>
+					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Kết quả <br> Model</b></td>
+					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Vùng giá kháng cự</b></td>
+					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Vùng giá tham chiếu</b></td>
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Điểm QTRR</b></td>
-					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Xếp hạng FA</b></td>
-					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Phân tích DN FA</b></td>
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>Thứ tự</b></td>
 					<td style="background:#151f38;white-space: inherit;vertical-align: middle" align="center"><b>TOP Cổ Phiếu</b></td>
 					<td style="background:#151f38;"><span onclick="JS_DataFinancial.addrow()" class="text-cursor text-primary"><i class="fas fa-plus-square"></i></span></td>
@@ -142,33 +141,23 @@ use Modules\System\Recordtype\Helpers\WorkflowHelper;
 					</td>
 					@endif
 					<td style="vertical-align: middle;white-space: inherit;" align="center" onclick="{select_row(this);}">{{!empty($data->created_at) ? date('H', strtotime($data->created_at)). 'h' . date('i', strtotime($data->created_at)). ' ' .date('d/m', strtotime($data->created_at)) : ''}}</td>
-					<td class="td_ratings_TA_{{$id}}" style="vertical-align: middle;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'ratings_TA')">
-						<span id="span_ratings_TA_{{$id}}" class="span_ratings_TA_{{$id}}">{{$data->ratings_TA}}</span>
-					</td>
 					<td class="td_identify_trend_{{$id}}" align="center" style="vertical-align: middle;" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'identify_trend')">
 						<span id="span_identify_trend_{{$id}}" class="span_identify_trend_{{$id}}" style="display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;white-space: break-spaces;overflow:hidden;" title="{{$data->identify_trend}}">{{$data->identify_trend}}</span>
 					</td>
-					<td class="td_act_{{$id}}" style="vertical-align: middle;white-space: inherit;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'act')">
-						<span id="span_act_{{$id}}" class="span_act_{{$id}}">{{$data->act}}</span>
+					<td class="td_status_model_{{$id}}" style="vertical-align: middle;white-space: inherit;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'status_model')">
+						<span id="span_status_model_{{$id}}" class="span_status_model_{{$id}}">{{$data->status_model}}</span>
+					</td>
+					<td class="td_model_{{$id}}" style="vertical-align: middle;white-space: inherit;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'model')">
+						<span id="span_model_{{$id}}" class="span_model_{{$id}}">{{$data->model}}</span>
+					</td>
+					<td class="td_trading_price_resist_{{$id}}" style="vertical-align: middle;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'trading_price_resist')">
+						<span id="span_trading_price_resist_{{$id}}" class="span_trading_price_resist_{{$id}}">{{$data->trading_price_resist}}</span>
 					</td>
 					<td class="td_trading_price_range_{{$id}}" style="vertical-align: middle;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'trading_price_range')">
 						<span id="span_trading_price_range_{{$id}}" class="span_trading_price_range_{{$id}}">{{$data->trading_price_range}}</span>
 					</td>
 					<td class="td_stop_loss_price_zone_{{$id}}" style="vertical-align: middle;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'stop_loss_price_zone')">
 						<span id="span_stop_loss_price_zone_{{$id}}" class="span_stop_loss_price_zone_{{$id}}">{{$data->stop_loss_price_zone}}</span>
-					</td>
-					@if(isset($_SESSION['role']) && ($_SESSION['role'] == 'ADMIN' || $_SESSION['role'] == 'MANAGE' ||
-                    $_SESSION['role'] == 'CV_ADMIN' || $_SESSION['role'] == 'CV_ADMIN,SALE_ADMIN' || $_SESSION['role'] == 'CV_ADMIN,SALE_BASIC'))
-					<td class="td_ratings_FA_{{$id}}" style="vertical-align: middle;" align="center" onclick="{select_row(this);}" ondblclick="click2('{{$id}}', 'ratings_FA')">
-						<span id="span_ratings_FA_{{$id}}" class="span_ratings_FA_{{$id}}">{{$data->ratings_FA}}</span>
-					</td>
-					@else
-					<td style="vertical-align: middle;" align="center">
-						{{$data->ratings_FA}}
-					</td>
-					@endif
-					<td style="vertical-align: middle;" align="center" onclick="{select_row(this);}">
-						<a href="{{$data->url_link}}" target="_blank"><i class="fas fa-link"></i></a>
 					</td>
 					<td class="text-center" style="vertical-align: middle;" onclick="{select_row(this);}">
 						<span class="me-3" style="cursor: pointer;" onclick="JS_DataFinancial.upNdown('down','{{$id}}', this)"><i class="fas fa-long-arrow-alt-down"></i></span>

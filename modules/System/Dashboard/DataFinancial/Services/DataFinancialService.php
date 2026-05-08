@@ -23,74 +23,194 @@ class DataFinancialService extends Service
         return DataFinancialRepository::class;
     }
 
-    public function store($input){
-        if(isset($input['order'])){
+    // public function store($input){
+    //     if(isset($input['order'])){
+    //         $this->updateOrder($input);
+    //     }
+    //     $count = $this->repository->select('id')->count();
+    //     if($input['id'] != ''){
+    //         $dataFinancials = $this->repository->select('*')->where('id',$input['id'])->count();
+    //         $arrData = [
+    //             "user_id" => auth()->id(),
+    //             "ratings_TA" => $input['ratings_TA'],
+    //             "identify_trend" =>$input['identify_trend'],
+    //             "act" =>!empty($input['act'])?$input['act']:'',
+    //             "trading_price_range" =>$input['trading_price_range'],
+    //             "stop_loss_price_zone" =>$input['stop_loss_price_zone'],
+    //             "status" =>!empty($input['status'])?$input['status']:1,
+    //             "created_at" => date("Y/m/d H:i:s"),
+    //             "updated_at" => date("Y/m/d H:i:s")
+    //         ];
+    //         if(!empty($input['code_cp'])){
+    //             $arrData['code_cp'] =  $input['code_cp'];
+    //         }
+    //         if(!empty($input['code_category'])){
+    //             $arrData['code_category'] =  $input['code_category'];
+    //         }
+    //         if(!empty($input['order'])){
+    //             $arrData['order'] =  isset($input['order']) ? $input['order'] : (isset($dataFinancials->order) ? $dataFinancials->order : ((int)$count + 1));
+    //         }
+    //         if(!empty($input['url_link'])){
+    //             $arrData['url_link'] =  $input['url_link'];
+    //         }
+    //         if(!empty($input['exchange'])){
+    //             $arrData['exchange'] =  $input['exchange'];
+    //         }
+    //          if(!empty($input['ratings_FA'])){
+    //             $arrData['ratings_FA'] =  $input['ratings_FA'];
+    //         }
+    //         if(!empty($input['user_take_on'])){
+    //             $arrData['user_take_on'] =  $input['user_take_on'];
+    //         }
+    //         $create = $this->DataFinancialRepository->where('id',$input['id'])->update($arrData);
+    //     }else{
+    //         $dataFinancials = $this->repository->select('*')->where('code_cp', $input['code_cp'])->count();
+    //         if($dataFinancials > 0){
+    //             return array('success' => false, 'message' => 'Mã đối tượng đã tồn tại!');
+    //         }
+    //         $arrData = [
+    //             'id'=>(string)Str::uuid(),
+    //             "user_id" => auth()->id(),
+    //             "code_cp" => $input['code_cp'],
+    //             "exchange" =>$input['exchange'],
+    //             "code_category" => $input['code_category'],
+    //             "ratings_TA" => $input['ratings_TA'],
+    //             "identify_trend" =>$input['identify_trend'],
+    //             "act" =>$input['act'],
+    //             "trading_price_range" =>$input['trading_price_range'],
+    //             "stop_loss_price_zone" =>$input['stop_loss_price_zone'],
+    //             "ratings_FA" =>$input['ratings_FA'],
+    //             "url_link" =>!empty($input['url_link'])?$input['url_link']:'test_link',
+    //             "status" =>!empty($input['status'])?$input['status']:1,
+    //             "user_take_on" =>!empty($input['user_take_on'])?$input['user_take_on']:1,
+    //             "order" => ((int)$count + 1),
+    //             "created_at" => date("Y/m/d H:i:s"),
+    //             "updated_at" => date("Y/m/d H:i:s")
+    //         ];
+    //         $create = $this->DataFinancialRepository->create($arrData);
+    //     }
+        
+    //     return array('success' => true, 'message' => 'Cập nhật thành công');
+    // }
+    public function store($input)
+    {
+        if (isset($input['order']) && $input['order'] != '') {
             $this->updateOrder($input);
         }
-        $count = $this->repository->select('id')->count();
-        if($input['id'] != ''){
-            $dataFinancials = $this->repository->select('*')->where('id',$input['id'])->count();
+
+        $count = $this->repository->count();
+
+        // ================= UPDATE =================
+        if (!empty($input['id'])) {
+
+            $data = $this->repository
+                ->where('id', $input['id'])
+                ->first();
+
+            if (!$data) {
+                return [
+                    'success' => false,
+                    'message' => 'Không tìm thấy dữ liệu!'
+                ];
+            }
+
             $arrData = [
-                "user_id" => $_SESSION['id'],
-                "ratings_TA" => $input['ratings_TA'],
-                "identify_trend" =>$input['identify_trend'],
-                "act" =>!empty($input['act'])?$input['act']:'',
-                "trading_price_range" =>$input['trading_price_range'],
-                "stop_loss_price_zone" =>$input['stop_loss_price_zone'],
-                "status" =>!empty($input['status'])?$input['status']:1,
-                "created_at" => date("Y/m/d H:i:s"),
-                "updated_at" => date("Y/m/d H:i:s")
+                "user_id" => auth()->id() ?? null,
+
+                "identify_trend" => $input['identify_trend'] ?? '',
+                "status_model" => $input['status_model'] ?? '',
+                "model" => $input['model'] ?? '',
+                "trading_price_resist" => $input['trading_price_resist'] ?? '',
+                "trading_price_range" => $input['trading_price_range'] ?? '',
+                "stop_loss_price_zone" => $input['stop_loss_price_zone'] ?? '',
+                "user_take_on" => $input['user_take_on'] ?? '',
+
+                "updated_at" => date("Y-m-d H:i:s")
             ];
-            if(!empty($input['code_cp'])){
-                $arrData['code_cp'] =  $input['code_cp'];
+
+            // chỉ ADMIN mới sửa
+            if (!empty($input['code_cp'])) {
+                $arrData['code_cp'] = $input['code_cp'];
             }
-            if(!empty($input['code_category'])){
-                $arrData['code_category'] =  $input['code_category'];
+
+            if (!empty($input['exchange'])) {
+                $arrData['exchange'] = $input['exchange'];
             }
-            if(!empty($input['order'])){
-                $arrData['order'] =  isset($input['order']) ? $input['order'] : (isset($dataFinancials->order) ? $dataFinancials->order : ((int)$count + 1));
+
+            if (!empty($input['code_category'])) {
+                $arrData['code_category'] = $input['code_category'];
             }
-            if(!empty($input['url_link'])){
-                $arrData['url_link'] =  $input['url_link'];
+
+            if (isset($input['order']) && $input['order'] != '') {
+                $arrData['order'] = $input['order'];
             }
-            if(!empty($input['exchange'])){
-                $arrData['exchange'] =  $input['exchange'];
-            }
-             if(!empty($input['ratings_FA'])){
-                $arrData['ratings_FA'] =  $input['ratings_FA'];
-            }
-            if(!empty($input['user_take_on'])){
-                $arrData['user_take_on'] =  $input['user_take_on'];
-            }
-            $create = $this->DataFinancialRepository->where('id',$input['id'])->update($arrData);
-        }else{
-            $dataFinancials = $this->repository->select('*')->where('code_cp', $input['code_cp'])->count();
-            if($dataFinancials > 0){
-                return array('success' => false, 'message' => 'Mã đối tượng đã tồn tại!');
-            }
-            $arrData = [
-                'id'=>(string)Str::uuid(),
-                "user_id" => $_SESSION['id'],
-                "code_cp" => $input['code_cp'],
-                "exchange" =>$input['exchange'],
-                "code_category" => $input['code_category'],
-                "ratings_TA" => $input['ratings_TA'],
-                "identify_trend" =>$input['identify_trend'],
-                "act" =>$input['act'],
-                "trading_price_range" =>$input['trading_price_range'],
-                "stop_loss_price_zone" =>$input['stop_loss_price_zone'],
-                "ratings_FA" =>$input['ratings_FA'],
-                "url_link" =>!empty($input['url_link'])?$input['url_link']:'test_link',
-                "status" =>!empty($input['status'])?$input['status']:1,
-                "user_take_on" =>!empty($input['user_take_on'])?$input['user_take_on']:1,
-                "order" => ((int)$count + 1),
-                "created_at" => date("Y/m/d H:i:s"),
-                "updated_at" => date("Y/m/d H:i:s")
+
+            $update = $this->repository
+                ->where('id', $input['id'])
+                ->update($arrData);
+
+            return [
+                'success' => true,
+                'message' => 'Cập nhật thành công'
             ];
-            $create = $this->DataFinancialRepository->create($arrData);
         }
-        
-        return array('success' => true, 'message' => 'Cập nhật thành công');
+
+        // ================= CREATE =================
+        else {
+
+            $exists = $this->repository
+                ->where('code_cp', $input['code_cp'])
+                ->exists();
+
+            if ($exists) {
+                return [
+                    'success' => false,
+                    'message' => 'Mã CP đã tồn tại!'
+                ];
+            }
+
+            $arrData = [
+
+                'id' => (string) Str::uuid(),
+
+                "user_id" => auth()->id() ?? null,
+
+                "order" => !empty($input['order'])
+                    ? $input['order']
+                    : ($count + 1),
+
+                "code_cp" => $input['code_cp'] ?? '',
+
+                "exchange" => $input['exchange'] ?? '',
+
+                "code_category" => $input['code_category'] ?? '',
+
+                "identify_trend" => $input['identify_trend'] ?? '',
+
+                "status_model" => $input['status_model'] ?? '',
+
+                "model" => $input['model'] ?? '',
+
+                "trading_price_resist" => $input['trading_price_resist'] ?? '',
+
+                "trading_price_range" => $input['trading_price_range'] ?? '',
+
+                "stop_loss_price_zone" => $input['stop_loss_price_zone'] ?? '',
+
+                "user_take_on" => $input['user_take_on'] ?? '',
+
+                "created_at" => date("Y-m-d H:i:s"),
+
+                "updated_at" => date("Y-m-d H:i:s")
+            ];
+
+            $create = $this->repository->create($arrData);
+
+            return [
+                'success' => true,
+                'message' => 'Thêm mới thành công'
+            ];
+        }
     }
     public function edit($arrInput){
         $getUserInfor = $this->repository->where('id',$arrInput['chk_item_id'])->first()->toArray();
@@ -129,7 +249,7 @@ class DataFinancialService extends Service
         $order = isset($dataFinancialSingle) && !empty($dataFinancialSingle->order) ? $dataFinancialSingle->order : count($dataFinancials) + 1;
         $status = isset($dataFinancialSingle->status) ? $dataFinancialSingle->status : 0;
         $param = [
-            'user_id' => $_SESSION['id'],
+            'user_id' => auth()->id(),
             // 'code_cp' => isset($input['code_cp']) ? $input['code_cp'] : $code_cp,
             'exchange' => isset($input['exchange']) ? $input['exchange'] : $exchange,
             // 'code_category' => isset($input['code_category']) ? $input['code_category'] : $code_category,

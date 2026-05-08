@@ -56,9 +56,6 @@ class DataFinancialController extends Controller
             $explode = explode(',',$arrInput['code_category']);
             $arrInput['code_category'] = $explode;
         }
-        if(isset($arrInput['act']) && ($arrInput['act'] == null || $arrInput['act'] == '')){
-            unset($arrInput['act']);
-        }
         if(isset($arrInput['type']) && $arrInput['type'] == 'TIN_HIEU'){
             $arrInput['type'] = ['MUA','MUA DẦN','MUA MẠNH'];
         }else{

@@ -20,6 +20,7 @@ return new class extends Migration
             // $table->string('ratings_TA')->nullable(); // xếp hạng TA                  bỏ
             $table->text('identify_trend')->nullable(); //nhận định TA -xu hướng CP
             // $table->string('act')->nullable(); //Hành động
+            $table->string('status_model')->nullable(); //  status_model 
             $table->string('model')->nullable(); // Kết quả Model                        act->model
             $table->string('trading_price_resist')->nullable(); // Vùng giá kháng cự
             $table->string('trading_price_range')->nullable(); // Vùng giá giao dịch     Vùng giá giao dịch > .Sửa thành " Vùng giá tham chiếu"

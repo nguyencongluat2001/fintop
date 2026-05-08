@@ -58,7 +58,7 @@ class BlogService extends Service
             }
             // array data users
             $arrBlog = [
-                'user_id' => $_SESSION['id'],
+                'user_id' => auth()->id(),
                 'code_blog' => $code_blog,
                 'code_category' => $input['code_category'],
                 'type_blog' => $input['type_blog'],
