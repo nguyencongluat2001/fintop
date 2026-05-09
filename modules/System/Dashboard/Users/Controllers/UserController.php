@@ -107,21 +107,35 @@ class UserController extends Controller
     {
         $input = $request->all();
         $cate_quyen = $this->CategoryService->where('cate','DM_QUYEN')->orderBy('order','asc')->get();
-        if($_SESSION['role'] == 'ADMIN' || $_SESSION['role'] == 'MANAGE'){
-            $data['arr_quanly'] = $this->userService->where('role','ADMIN')->orWhere('role','MANAGE')->orWhere('role','CV_ADMIN')->orWhere('role','SALE_ADMIN')->orWhere('role','LIKE','%SALE_ADMIN%')->orWhere('role','LIKE','%CV_ADMIN%')->orderBy('order','asc')->get()->toArray();
-        }else{
-            $data['arr_quanly'] = $this->userService->where('id_personnel',$_SESSION['id_personnel'])->get();
+        $role = session('role');
+
+        $idPersonnel = session('id_personnel');
+
+        if ($role == 'ADMIN' || $role == 'MANAGE') {
+
+            $data['arr_quanly'] = $this->userService
+                ->where('role', '!=', 'USERS')
+                ->orderBy('order', 'asc')
+                ->get()
+                ->toArray();
+
+        } else {
+
+            $data['arr_quanly'] = $this->userService
+                ->where('id_personnel', $idPersonnel)
+                ->get()
+                ->toArray();
         }
         $quyen = [];
         foreach($cate_quyen as $value){
             
-            if($_SESSION['role'] == 'ADMIN'){
+            if(session('role') == 'ADMIN'){
                 $quyen[] = [
                     'code_category' => $value['code_category'],
                     'name_category' =>  $value['name_category'],
                     'status' =>  0,
                 ];
-            }elseif($_SESSION['role'] == 'MANAGE'){
+            }elseif(session('role') == 'MANAGE'){
                 $quyen = [
                     0 => [
                         'code_category' => 'MANAGE',
@@ -158,7 +172,7 @@ class UserController extends Controller
                         'name_category' => 'khách hàng'
                     ]
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN'){
+            }elseif(session('role') == 'CV_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -181,7 +195,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'SALE_ADMIN'){
+            }elseif(session('role') == 'SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -199,7 +213,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN,SALE_ADMIN'){
+            }elseif(session('role') == 'CV_ADMIN,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -222,7 +236,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN,SALE_BASIC'){
+            }elseif(session('role') == 'CV_ADMIN,SALE_BASIC'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -245,7 +259,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_PRO,SALE_ADMIN'){
+            }elseif(session('role') == 'CV_PRO,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -264,7 +278,7 @@ class UserController extends Controller
                     
                 ];
             }
-            elseif($_SESSION['role'] == 'CV_BASIC,SALE_ADMIN'){
+            elseif(session('role') == 'CV_BASIC,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -312,20 +326,34 @@ class UserController extends Controller
         $input = $request->all();
         $data = $this->userService->editUser($input);
         $cate_quyen = $this->CategoryService->where('cate','DM_QUYEN')->orderBy('order','asc')->get();
-        if($_SESSION['role'] == 'ADMIN' || $_SESSION['role'] == 'MANAGE'){
-            $data['arr_quanly'] = $this->userService->where('role','ADMIN')->orwhere('role','MANAGE')->orWhere('role','CV_ADMIN')->orWhere('role','SALE_ADMIN')->orWhere('role','LIKE','%SALE_ADMIN%')->orWhere('role','LIKE','%CV_ADMIN%')->orWhere('role','SALE_BASIC')->orWhere('role','LIKE','%SALE_BASIC%')->orderBy('order','asc')->get()->toArray();
-        }else{
-            $data['arr_quanly'] = $this->userService->where('id_personnel',$_SESSION['id_personnel'])->get();
+        $role = session('role');
+
+        $idPersonnel = session('id_personnel');
+
+        if (in_array($role, ['ADMIN', 'MANAGE'])) {
+
+            $data['arr_quanly'] = $this->userService
+                ->where('role', '!=', 'USERS')
+                ->orderBy('order', 'asc')
+                ->get()
+                ->toArray();
+
+        } else {
+
+            $data['arr_quanly'] = $this->userService
+                ->where('id_personnel', $idPersonnel)
+                ->get()
+                ->toArray();
         }
         $quyen = [];
         foreach($cate_quyen as $value){
             
-            if($_SESSION['role'] == 'ADMIN'){
+            if(session('role') == 'ADMIN'){
                 $quyen[] = [
                     'code_category' => $value['code_category'],
                     'name_category' =>  $value['name_category'],
                 ];
-            }elseif($_SESSION['role'] == 'MANAGE'){
+            }elseif(session('role') == 'MANAGE'){
                 $quyen = [
                     0 => [
                         'code_category' => 'MANAGE',
@@ -360,7 +388,7 @@ class UserController extends Controller
                         'name_category' => 'khách hàng'
                     ]
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN'){
+            }elseif(session('role') == 'CV_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -379,7 +407,7 @@ class UserController extends Controller
                         'name_category' => 'khách hàng'
                     ]
                 ];
-            }elseif($_SESSION['role'] == 'SALE_ADMIN'){
+            }elseif(session('role') == 'SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -395,7 +423,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-             }elseif($_SESSION['role'] == 'CV_ADMIN,SALE_ADMIN'){
+             }elseif(session('role') == 'CV_ADMIN,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -418,7 +446,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN,SALE_BASIC'){
+            }elseif(session('role') == 'CV_ADMIN,SALE_BASIC'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -441,7 +469,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_PRO,SALE_ADMIN'){
+            }elseif(session('role') == 'CV_PRO,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -460,7 +488,7 @@ class UserController extends Controller
                     
                 ];
             }
-            elseif($_SESSION['role'] == 'CV_BASIC,SALE_ADMIN'){
+            elseif(session('role') == 'CV_BASIC,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -478,7 +506,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN,SALE_ADMIN'){
+            }elseif(session('role') == 'CV_ADMIN,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -501,7 +529,7 @@ class UserController extends Controller
                     ]
                     
                 ];
-            }elseif($_SESSION['role'] == 'CV_ADMIN,SALE_BASIC'){
+            }elseif(session('role') == 'CV_ADMIN,SALE_BASIC'){
                 $quyen = [
                     0 => [
                         'code_category' => 'CV_ADMIN',
@@ -524,7 +552,7 @@ class UserController extends Controller
                     ]
                 ];
                 
-            }elseif($_SESSION['role'] == 'CV_PRO,SALE_ADMIN'){
+            }elseif(session('role') == 'CV_PRO,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -543,7 +571,7 @@ class UserController extends Controller
                     
                 ];
             }
-            elseif($_SESSION['role'] == 'CV_BASIC,SALE_ADMIN'){
+            elseif(session('role') == 'CV_BASIC,SALE_ADMIN'){
                 $quyen = [
                     0 => [
                         'code_category' => 'SALE_ADMIN',
@@ -581,11 +609,11 @@ class UserController extends Controller
             }
         }
         $data['cate_quyen'] = $arrQuyen;
-        $getuser_introduce_name = $this->userService->where('id_manage',$data['id_manage'])->first();
+        // $getuser_introduce_name = $this->userService->where('id_manage',$data['id_manage'])->first();
         $data['user_introduce_name'] = '';
-        if(!empty($getuser_introduce_name['name'])){
-            $data['user_introduce_name'] = $getuser_introduce_name['name'];
-        }
+        // if(!empty($getuser_introduce_name['name'])){
+        //     $data['user_introduce_name'] = $getuser_introduce_name['name'];
+        // }
         return view('dashboard.users.edit',compact('data'));
     }
 
@@ -599,7 +627,7 @@ class UserController extends Controller
     public function delete(Request $request)
     {
         $input = $request->all();
-        if($_SESSION['role'] != 'ADMIN' && $_SESSION['role'] != 'MANAGE' && $_SESSION['role'] != 'CV_ADMIN' && $_SESSION['role'] != 'CV_ADMIN,SALE_ADMIN' && $_SESSION['role'] != 'CV_ADMIN,SALE_BASIC' && $_SESSION['role'] != 'SALE_ADMIN'){
+        if(session('role') != 'ADMIN' && session('role') != 'MANAGE' && session('role') != 'CV_ADMIN' && session('role') != 'CV_ADMIN,SALE_ADMIN' && session('role') != 'CV_ADMIN,SALE_BASIC' && session('role') != 'SALE_ADMIN'){
             return array('success' => false, 'message' => 'Rất tiếc! bạn ko có quyền. Vui lòng liên hệ hỗ trợ FinTop.');
         }
         $listids = trim($input['listitem'], ",");
@@ -629,15 +657,38 @@ class UserController extends Controller
         $param['sort'] = 'order';
         $param['sortType'] = 1;
         $param['role'] = ['USERS'];
-        if($_SESSION['role'] == 'CV_ADMIN' || $_SESSION['role'] == 'CV_ADMIN,SALE_ADMIN' || $_SESSION['role'] == 'CV_ADMIN,SALE_BASIC' 
-        || $_SESSION['role'] == 'SALE_ADMIN' || $_SESSION['role'] == 'SALE_ADMIN,SALE'){
-            $getUser_child_goc = [$_SESSION['id_personnel']];
-            $getUser_child = $this->userService->where('id_manage',$_SESSION['id_personnel'])->where('role','!=','USERS')->pluck('id_personnel')->toArray();
-            $id_manage = array_merge($getUser_child_goc,$getUser_child);
+        $role = session('role');
+
+        $idPersonnel = session('id_personnel');
+
+        if (
+            $role == 'CV_ADMIN' ||
+            $role == 'CV_ADMIN,SALE_ADMIN' ||
+            $role == 'CV_ADMIN,SALE_BASIC' ||
+            $role == 'SALE_ADMIN' ||
+            $role == 'SALE_ADMIN,SALE'
+        ) {
+
+            $getUser_child_goc = [$idPersonnel];
+
+            $getUser_child = $this->userService
+                ->where('id_manage', $idPersonnel)
+                ->where('role', '!=', 'USERS')
+                ->pluck('id_personnel')
+                ->toArray();
+
+            $id_manage = array_merge(
+                $getUser_child_goc,
+                $getUser_child
+            );
+
             $param['id_manage'] = $id_manage;
-        }elseif($_SESSION['role'] == 'MANAGE'){
-            $param['role'] = ['ADMIN','USERS'];
+
+        } elseif ($role == 'MANAGE') {
+
+            $param['role'] = ['ADMIN', 'USERS'];
         }
+
         
         // dd($param);
         $objResult = $this->userService->filter($param);

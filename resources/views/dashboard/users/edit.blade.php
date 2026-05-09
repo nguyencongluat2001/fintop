@@ -46,12 +46,18 @@
 					<div class="col-md-6">
 					<p for="example-text-input" class="form-control-label"> Mật khẩu</p>
 
-						@if(!empty($data['email']) && $_SESSION["email"] == $data['email'] || $_SESSION["role"] == 'ADMIN')
-						<span id='btn_changePass'>
-							<button class="btn btn-primary btn-sm" type="button">
-								Đổi mật khẩu
-							</button>
-						</span>
+						@if(
+							!empty($data['email']) &&
+							(
+								session('email') == $data['email'] ||
+								session('role') == 'ADMIN'
+							)
+						)
+							<span id="btn_changePass">
+								<button class="btn btn-primary btn-sm" type="button">
+									Đổi mật khẩu
+								</button>
+							</span>
 						@endif
 					</div>
 					

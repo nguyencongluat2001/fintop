@@ -23,18 +23,36 @@
             </div>
         </div>
         <ul class="tv-nav">
-            <li class="nav-item"><a href="index.html">Trang chủ</a></li>
-            <li class="nav-item"><a href="hoi-vien/index.html">Hội viên</a></li>
+            <li class="nav-item">
+                <a href="/client/home/index">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+                <a href="/client/privileges/index">Hội viên</a>
+            </li>
             <li class="nav-item dropdown" id="dropdown-fintop-data">
-                <a href="javascript:void(0)" onclick="toggleDropdownPin('dropdown-fintop-data')">FinTop Data <span
-                        style="font-size: 0.7em;">▼</span></a>
+                <a href="javascript:void(0)" onclick="toggleDropdownPin('dropdown-fintop-data')">
+                    FinTop Data <span style="font-size: 0.7em;">▼</span>
+                </a>
+
                 <div class="dropdown-content" id="dc-fintop-data">
-                    <a href="javascript:void(0)" data-panel="panel-tracuu" onclick="openPanel('panel-tracuu', this)">📊
-                        Tra cứu cổ phiếu</a>
-                    <a href="javascript:void(0)" data-panel="panel-boloc" onclick="openPanel('panel-boloc', this)">🔍 Bộ
-                        lọc cổ phiếu</a>
-                    <a href="javascript:void(0)" data-panel="panel-tinhieu"
-                        onclick="openPanel('panel-tinhieu', this)">📡 Copy Trade Chuyên gia</a>
+                    <a href="/client/datafinancial/index"
+                    data-panel="panel-tracuu"
+                    onclick="openPanel('panel-tracuu', this)">
+                        📊 Tra cứu cổ phiếu
+                    </a>
+
+                    <a href="javascript:void(0)"
+                    data-panel="panel-boloc"
+                    onclick="openPanel('panel-boloc', this)">
+                        🔍 Bộ lọc cổ phiếu
+                    </a>
+
+                    <a href="javascript:void(0)"
+                    data-panel="panel-tinhieu"
+                    onclick="openPanel('panel-tinhieu', this)">
+                        📡 Copy Trade Chuyên gia
+                    </a>
+
                     <a href="fintop-ai/index.html">🤖 FinTop AI</a>
                 </div>
             </li>

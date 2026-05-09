@@ -86,8 +86,7 @@
     <section class="product-showcase">
         <div class="showcase-header">
             <h2 class="gradient-text">Hệ Sinh Thái Phân Tích Đầu Tư Đỉnh Cao</h2>
-            <p>Đồng hành cùng hàng nghìn nhà đầu tư Việt Nam làm chủ dòng tiền thông minh bằng bộ công cụ dữ liệu chuẩn
-                quốc tế.</p>
+            <p>Đồng hành trên +10,000 nhà đầu tư tại Việt Nam làm chủ dòng tiền đầu tư thông minh bằng bộ công cụ dữ liệu tiêu chuẩn quốc tế.</p>
         </div>
         <div class="showcase-mockup-wrapper">
             <img src="/assetsFT/images/fintop_terminal_mockup.png" alt="FinTop DATA Terminal Dashboard" class="mockup-img">
@@ -144,11 +143,11 @@
             <!-- GÓI V.I.P - Xanh ngọc -->
             <div class="pricing-card liquid-glass-card card-vip">
                 <div class="pricing-title">V.I.P</div>
-                <div class="pricing-subtitle" style="color: #6ee7b7;">(Cao cấp)</div>
+                <div class="pricing-subtitle" style="color: #6ee7b7;">(Nâng cao)</div>
                 <ul class="pricing-features">
-                    <li><span class="check-icon">✦</span> Tín Hiệu CG</li>
-                    <li><span class="check-icon">✦</span> Danh Mục CG</li>
-                    <li><span class="check-icon">✦</span> Pro Analysis</li>
+                    <li><span class="check-icon">✦</span> Đặc quyền PRO</li>
+                    <li><span class="check-icon">✦</span> Kết nối Chuyên gia</li>
+                    <li><span class="check-icon">✦</span> Phân tích Chuyên gia</li>
                 </ul>
                 <button class="btn-tier">Đăng ký</button>
             </div>
@@ -160,7 +159,7 @@
                 <ul class="pricing-features">
                     <li><span class="check-icon">✦</span> Đặc quyền V.I.P</li>
                     <li><span class="check-icon">✦</span> Đặc quyền PRO</li>
-                    <li><span class="check-icon">✦</span> Cố vấn 1-1</li>
+                    <li><span class="check-icon">✦</span> Cố vấn 1-1 Chuyên gia</li>
                 </ul>
                 <button class="btn-tier">Đăng ký</button>
             </div>
