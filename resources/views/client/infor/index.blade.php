@@ -1,6 +1,6 @@
 @extends('client.layouts.index')
 @section('body-client')
-<link rel="stylesheet" href="../clients/css/style.css">
+<link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\JS_InforClient.js') }}"></script>
 <title>TÀI CHÍNH & ĐẦU TƯ</title>
 <style>
@@ -333,7 +333,7 @@
 </section>
 <div class="modal" id="formmodal" role="dialog"></div>
 <div class="modal" id="formmodal_res" role="dialog"></div>
-<script src="../clients/js/jquery.min.js"></script>
+<script src="{{ asset('clients/js/jquery.min.js') }}"></script>
 <div class="modal fade" id="editmodal" role="dialog"></div>
 <div class="modal " id="editPassmodal" role="dialog" style=" width: 100%;height: 100%;background: #0000007d; background-repeat:no-repeat;background-size: cover;"></div>
 <div id="dialogconfirm"></div>

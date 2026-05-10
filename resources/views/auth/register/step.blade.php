@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../clients/css/style.css">
+<link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 
 <div class="card" style="background:#000000f5 !important">
     <div class="card-header" style="#700e13 !important">

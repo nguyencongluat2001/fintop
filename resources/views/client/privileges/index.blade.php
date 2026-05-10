@@ -30,7 +30,7 @@
                     <li><span class="check-icon">✦</span> Báo cáo phân tích</li>
                     <li><span class="check-icon">✦</span> Tool & Dữ liệu cơ bản</li>
                 </ul>
-                <button class="btn-tier">Đăng ký</button>
+                <button class="btn-tier" onclick="JS_UpgradeAcc.viewInfo('TIEU_CHUAN')">Đăng ký</button>
             </div>
 
             <!-- GÓI PRO - Tím -->
@@ -70,7 +70,7 @@
             </div>
         </div>
     </section>
-<script src="../clients/js/jquery.min.js"></script>
+<script src="{{ asset('clients/js/jquery.min.js') }}"></script>
 <div class="modal" id="formmodal" role="dialog"></div>
 <div class="modal" id="formmodal_res" role="dialog"></div>
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\JS_UpgradeAcc.js') }}"></script>

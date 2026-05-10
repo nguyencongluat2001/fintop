@@ -18,7 +18,7 @@
     <!-- Tệp JavaScript Tùy Chỉnh -->
     <script src="/assetsFT/js/scroll-animation.js" defer></script>
     <script src="/assetsFT/js/counter.js" defer></script>
-    <script src="../clients/js/jquery.min.js"></script>
+    <script src="{{ asset('clients/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets\js\NclLibrary.js') }}"></script>
 
 </head>

@@ -27,7 +27,7 @@
 		cursor: pointer;
 	}
 </style>
-<link rel="stylesheet" href="../clients/css/style.css">
+<link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 
 <form id="frmAdd_updateAcc" role="form" enctype="multipart/form-data" style="padding-top: 10%;">
 	@csrf

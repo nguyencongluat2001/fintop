@@ -19,7 +19,7 @@
         cursor: pointer;
     }
 </style>
-<link rel="stylesheet" href="../clients/css/style.css">
+<link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 
 <div class="container mt-2 mb-2">
     <div class="row justify-content-center">

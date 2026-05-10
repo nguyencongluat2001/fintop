@@ -26,7 +26,7 @@
 		background:#001f39 !important;
 	}
 </style>
-<link rel="stylesheet" href="../clients/css/style.css">
+<link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 
 <form id="frmAdd_updateAcc" role="form" action="" method="POST" enctype="multipart/form-data">
 	@csrf

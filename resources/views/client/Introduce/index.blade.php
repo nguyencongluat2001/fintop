@@ -308,7 +308,7 @@
         </div>
     </div>
 </section>
-<script src="../clients/js/jquery.min.js"></script>
+<script src="{{ asset('clients/js/jquery.min.js') }}"></script>
 
 <script>
     NclLib.menuActive('.link-introduce');

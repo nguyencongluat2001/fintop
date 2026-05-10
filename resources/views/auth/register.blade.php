@@ -1,7 +1,7 @@
 @extends('client.layouts.index')
 @section('body-client')
 <title>TÀI CHÍNH & ĐẦU TƯ FINTOP</title>
-<link rel="stylesheet" href="../clients/css/style.css">
+<link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 
 <style>
     .hidden {

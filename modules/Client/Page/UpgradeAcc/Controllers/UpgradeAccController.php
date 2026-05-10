@@ -139,8 +139,9 @@ class UpgradeAccController extends Controller
         //     ];
         //     return response()->json($data);
         // }
-        if(!empty($_SESSION['id'])){
-            $account = $this->userService->find($_SESSION['id']);
+        dd(session('id'));
+        if(!empty(session('id'))){
+            $account = $this->userService->find(session('id'));
             $data['users'] = $account;
         }
         $data['time_register'] = date('d-m-Y');
