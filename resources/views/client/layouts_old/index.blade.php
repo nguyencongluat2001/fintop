@@ -29,7 +29,7 @@
     <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
     <link href="../clients/fontawesome/css/all.min.css" rel="stylesheet">
 
-    <link href="../clients/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('clients/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font CSS -->
     <link href="../clients/css/boxicon.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -525,7 +525,7 @@
     @include('client.layouts.footer')
     <!-- End Footer -->
     <!-- Bootstrap -->
-    <script src="../clients/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('clients/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Load jQuery require for isotope -->
     <script src="{{ asset('clients/js/jquery.min.js') }}"></script>
     <!-- Isotope -->

@@ -55,11 +55,11 @@ class UpgradeAccController extends Controller
             ];
             // return response()->json($data);
         }
-         if(!empty($_SESSION['id'])){
-            $account = $this->userService->find($_SESSION['id']);
+         if(!empty(session('id'))){
+            $account = $this->userService->find(session('id'));
             $data['users'] = $account;
         }
-        $account = $this->userService->find($_SESSION['id']);
+        $account = $this->userService->find(session('id'));
         $data['users'] = $account;
         $data['time_register'] = date('d-m-Y');
         $data['type_vip'] = $input['vip'];
@@ -84,7 +84,7 @@ class UpgradeAccController extends Controller
             return $data;
         }
         $arrFile = $this->uploadFile($_FILES);
-        $account = $this->userService->find($_SESSION['id']);
+        $account = $this->userService->find(session('id'));
         $arr = [
             'id'=>(string)\Str::uuid(),
             'user_id'=> $account['id'],
@@ -139,7 +139,6 @@ class UpgradeAccController extends Controller
         //     ];
         //     return response()->json($data);
         // }
-        dd(session('id'));
         if(!empty(session('id'))){
             $account = $this->userService->find(session('id'));
             $data['users'] = $account;

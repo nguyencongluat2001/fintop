@@ -42,7 +42,7 @@
                     <li><span class="check-icon">✦</span> Pro Analysis</li>
                     <li><span class="check-icon">✦</span> Pro Data</li>
                 </ul>
-                <button class="btn-tier">Đăng ký</button>
+                <button class="btn-tier" onclick="JS_UpgradeAcc.viewInfo('VIP1')">Đăng ký</button>
             </div>
 
             <!-- GÓI V.I.P - Xanh ngọc -->
@@ -54,7 +54,7 @@
                     <li><span class="check-icon">✦</span> Kết nối Chuyên gia</li>
                     <li><span class="check-icon">✦</span> Phân tích Chuyên gia</li>
                 </ul>
-                <button class="btn-tier">Đăng ký</button>
+                <button class="btn-tier" onclick="JS_UpgradeAcc.viewInfo('VIP2')">Đăng ký</button>
             </div>
 
             <!-- GÓI DIAMOND - Vàng -->
@@ -66,7 +66,7 @@
                     <li><span class="check-icon">✦</span> Đặc quyền PRO</li>
                     <li><span class="check-icon">✦</span> Cố vấn 1-1 Chuyên gia</li>
                 </ul>
-                <button class="btn-tier">Đăng ký</button>
+                <button class="btn-tier" onclick="JS_UpgradeAcc.viewInfo('KIM_CUONG')">Đăng ký</button>
             </div>
         </div>
     </section>

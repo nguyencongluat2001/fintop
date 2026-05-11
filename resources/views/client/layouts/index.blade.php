@@ -16,10 +16,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
     <!-- Tệp JavaScript Tùy Chỉnh -->
+    <link href="{{ asset('clients/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('clients/fontawesome/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('clients/css/boxicon.min.css') }}" rel="stylesheet">
+
     <script src="/assetsFT/js/scroll-animation.js" defer></script>
     <script src="/assetsFT/js/counter.js" defer></script>
     <script src="{{ asset('clients/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('assets\js\NclLibrary.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('clients/js/bootstrap.bundle.min.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/toast.min.css') }}">
 
 </head>
 

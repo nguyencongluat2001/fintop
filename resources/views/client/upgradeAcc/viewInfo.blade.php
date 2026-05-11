@@ -33,7 +33,7 @@
 	<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="id" id="id" value="{{!empty($data['users']->id)?$data['users']->id:''}}">
 	<div class="modal-dialog modal-lg" >
-		<div class="modal-content card" style="background:#5b1313db">
+		<div class="modal-content card" style="background:#ffffff">
 			<div class="modal-header">
 					<!-- <h5  style="width: 90%;" class="modal-title"></h5> -->
 					<div class="col-md-11 m-auto text-center py-2" style="width: 95%;">
@@ -91,7 +91,7 @@
 								</div>
 								<div class="pricing-list-footer  text-center m-auto align-items-center">
 									<br>
-									<a href="register" class="btn rounded-pill px-4 btn-primary light-300" style="background:#165c38">ĐĂNG KÝ</a>
+									<a href="/register" class="btn rounded-pill px-4 btn-primary light-300" style="background:#165c38">ĐĂNG KÝ</a>
 								</div>
 							</div>
 						</div>
@@ -114,7 +114,7 @@
 								</div>
 								<div class="pricing-list-footer text-center m-auto align-items-center">
 									<br>
-									<a href="login" class="btn rounded-pill px-4 btn-primary light-300" style="background:#165c38">ĐĂNG NHẬP</a>
+									<a href="/login" class="btn rounded-pill px-4 btn-primary light-300" style="background:#165c38">ĐĂNG NHẬP</a>
 								</div>
 							</div>
 						</div>
