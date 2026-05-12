@@ -2,11 +2,11 @@
 @section('body-client')
 <title>THỊ TRƯỜNG TỔNG HỢP</title>
 <style>
-  header {
+  /* header {
     font-family: 'Lobster', cursive;
     text-align: center;
     font-size: 25px;
-  }
+  } */
 
   #info {
     font-size: 18px;
@@ -85,12 +85,15 @@
     font-size: 1rem;
     font-weight: unset;
   }
+  .banner-wrapper{
+    padding-top:70px;
+  }
 </style>
 
 <!-- Start Banner Hero -->
 <div class="banner-wrapper">
   <!-- tra cứu cổ phiếu -->
-  <section class="container" style="background:#b56c6cb5">
+  <section class="container">
     <div class="pt-3 pb-3 d-lg-flex gx-5">
       <!-- <div class="col-lg-4">
 
@@ -107,7 +110,7 @@
 <div class="modal" id="reader" role="dialog"></div>
 <!-- End Recent Work -->
 <script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_About.js') }}?version=1.0.1"></script>
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
   var baseUrl = "{{ url('') }}";
   var JS_About = new JS_About(baseUrl, 'client', 'about');

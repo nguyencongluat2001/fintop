@@ -40,7 +40,7 @@
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\DataFinancial\JS_Recommendations.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\pages\JS_System_Security.js') }}"></script>
 
-    <script src='../assets/js/jquery.js'></script>
+    <script src="{{ asset('/assets/js/jquery.js') }}"></script>
     <script type="text/javascript">
         var baseUrl = "{{ url('') }}";
         var JS_Recommendations = new JS_Recommendations(baseUrl, 'client', 'datafinancial');

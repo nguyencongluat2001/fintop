@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="modal fade" id="addmodal" role="dialog" data-backdrop="static"></div>
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
     var baseUrl = "{{ url('') }}";
     var JS_Sql = new JS_Sql(baseUrl, 'system', 'sql');

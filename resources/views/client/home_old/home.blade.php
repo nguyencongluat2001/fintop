@@ -422,7 +422,7 @@ use Carbon\Carbon;
 <script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_About.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_Home.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('dist/js/backend/client/JS_UpgradeAcc.js') }}"></script>
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
     var baseUrl = "{{ url('') }}";
     var JS_About = new JS_About(baseUrl, 'client', 'about', 'home');

@@ -118,7 +118,7 @@
 </div>
 <div class="modal" id="videomodal" role="dialog"></div>
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\JS_Library.js') }}"></script>
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
     var baseUrl = '{{ url('') }}';
     var JS_Library = new JS_Library(baseUrl, 'client', 'library');

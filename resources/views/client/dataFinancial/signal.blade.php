@@ -43,7 +43,7 @@
 </section>
 <div class="modal" id="editmodal_fireAnt" role="dialog"></div>
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\DataFinancial\JS_Signal.js') }}"></script>
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
     var baseUrl = "{{ url('') }}";
     var JS_Signal = new JS_Signal(baseUrl, 'client', 'datafinancial');

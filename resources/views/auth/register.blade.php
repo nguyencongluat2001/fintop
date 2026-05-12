@@ -23,11 +23,14 @@
     .form-control{
         color:#fff079;
     }
+    .container{
+        padding-top:70px;
+    }
 </style>
 <div class="container mt-2 mb-2">
     <div class="row justify-content-center">
         <div class="col-md-7">
-            <div class="card" style="background:#000000f5;">
+            <div class="card" style="background:#020216a6;">
                 <div class="wrapper" style="background-image: url('images/bg-registration-form-2.jpg'); display: flex; justify-content: center;">
                     <form id="frmSend_Otp" method="POST" action="{{ route('register') }}" autocomplete="off">
                         @csrf
@@ -121,7 +124,7 @@
 <link rel="stylesheet" href="../assets/css/sweetalert2.min.css" />
 <div class="modal" id="model_otp" style="" role="dialog"></div>
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\pages\JS_Register.js') }}"></script>
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
     var baseUrl = '{{ url('') }}';
     var JS_Register = new JS_Register(baseUrl, 'register', 'send-otp');

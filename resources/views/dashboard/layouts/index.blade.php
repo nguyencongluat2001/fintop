@@ -309,7 +309,7 @@ $arrdData = ApprovePaymentModel::where('status',0)->get()->toArray();
             @yield('body')
         </main>
     <!--   Core JS Files   -->
-    <script src='../assets/js/jquery.js'></script>
+    <script src="{{ asset('/assets/js/jquery.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('..\assets\js\Js_Main.js') }}"></script>
       
         <script type="text/javascript">

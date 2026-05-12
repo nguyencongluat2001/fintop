@@ -26,7 +26,7 @@
 </div>
 <div class="modal fade" id="editmodal" role="dialog"></div>
 
-<script src='../assets/js/jquery.js'></script>
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
     var baseUrl = "{{ url('') }}";
     var JS_BackupData = new JS_BackupData(baseUrl, 'system', 'backupdata');

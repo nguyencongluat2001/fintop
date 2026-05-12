@@ -45,7 +45,7 @@
     <div class="modal " id="addfile" role="dialog"></div>
 
     <div id="dialogconfirm"></div>
-    <script src='../assets/js/jquery.js'></script>
+    <script src="{{ asset('/assets/js/jquery.js') }}"></script>
     <script type="text/javascript">
         var baseUrl = '{{ url('') }}';
         var JS_Permision = new JS_Permision(baseUrl, 'system', 'permision');

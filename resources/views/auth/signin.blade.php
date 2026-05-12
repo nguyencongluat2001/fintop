@@ -18,13 +18,16 @@
         color: black;
         cursor: pointer;
     }
+    .container{
+        padding-top:70px;
+    }
 </style>
 <link rel="stylesheet" href="{{ asset('clients/css/style.css') }}">
 
 <div class="container mt-2 mb-2">
     <div class="row justify-content-center">
         <div class="col-md-7">
-            <div class="card" style="background:#000000f5;">
+            <div class="card" style="background:#020216a6;">
                 <div class="wrapper" style="background-image: url('images/bg-registration-form-2.jpg'); display: flex; justify-content: center;">
                     <!-- <div class="inner"> -->
                     <form method="POST" action="{{ route('checkLogin') }}" autocomplete="off">

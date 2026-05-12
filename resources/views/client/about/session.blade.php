@@ -2,11 +2,11 @@
 @section('body-client')
 <title>PHÂN TÍCH ĐẦU TƯ VIP</title>
 <style>
-  header {
+  /* header {
     font-family: 'Lobster', cursive;
     text-align: center;
     font-size: 25px;
-  }
+  } */
 
   #info {
     font-size: 18px;
@@ -106,7 +106,7 @@
     </div>
   </section>
   <!-- tra cứu cổ phiếu -->
-  <section class="container" style="background:#b56c6cb5">
+  <section class="container" style="padding-top:70px">
     <div class="pt-3 pb-3 d-lg-flex gx-5">
       <!-- <div class="col-lg-4">
 
@@ -122,7 +122,8 @@
 <div class="modal" id="reader" role="dialog"></div>
 <!-- End Recent Work -->
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\JS_About.js') }}"></script>
-<script src='../assets/js/jquery.js'></script>
+<!-- <script src='./assets/js/jquery.js'></script> -->
+<script src="{{ asset('/assets/js/jquery.js') }}"></script>
 <script type="text/javascript">
   var baseUrl = "{{ url('') }}";
   var JS_About = new JS_About(baseUrl, 'client/about', 'session');

@@ -166,7 +166,7 @@
 
     <div class="modal " id="editPassmodal" role="dialog" style=" width: 100%;height: 100%;background: #0000007d; background-repeat:no-repeat;background-size: cover;"></div>
 
-    <script src='../assets/js/jquery.js'></script>
+    <script src="{{ asset('/assets/js/jquery.js') }}"></script>
     <script type="text/javascript">
         var baseUrl = '{{ url('') }}';
         var JS_User_info = new JS_User_info(baseUrl, 'system', 'userInfo');

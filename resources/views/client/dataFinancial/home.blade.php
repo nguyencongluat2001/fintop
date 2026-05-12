@@ -7,15 +7,15 @@
 <!-- <meta property="og:image:url" content="{{url('../clients/img/LogoFinTop_notbg.jpg')}}" /> -->
 
 <!-- tra cứu cổ phiếu -->
-<div class="banner-wrapper">
+<div class="banner-wrapper" style="padding-top:70px">
     <section class="container">
         <div class=" pb-3 d-lg-flex gx-5">
         <div class="col-lg-12">
             <form action="index" method="POST" id="frmLoadlist_data">
              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="home_index_vnindex pt-1 pb-2" style="background:#b56c6cb5 !important;border-radius:0px !important">
+                <div class="home_index_vnindex pt-1 pb-2" style="border-radius:0px !important">
                     <!-- Chú giải xếp hạng TA/FA -->
-                    <div class="home_index_child web" style="background:#ffffffe6 !important">
+                    <div class="home_index_child web">
                         <div class="col-lg-12" style="padding:10px;overflow-y: scroll;">
                         <!-- <h1 class="h5 "> TRA CỨU CỔ PHIẾU <i class="fas fa-search"></i></h1> -->
                             <div class="table-responsive py-2">
@@ -49,7 +49,7 @@
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\client\DataFinancial\JS_DataFinancial.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('dist\js\backend\pages\JS_System_Security.js') }}"></script>
 
-    <script src='../assets/js/jquery.js'></script>
+    <script src="{{ asset('/assets/js/jquery.js') }}"></script>
     <script type="text/javascript">
         var baseUrl = "{{ url('') }}";
         var JS_DataFinancial = new JS_DataFinancial(baseUrl, 'client', 'datafinancial');

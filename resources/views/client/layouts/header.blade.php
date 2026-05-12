@@ -11,16 +11,15 @@
     <header class="tv-header" id="mainHeader">
         <div class="tv-left">
             <a href="index.html" class="logo-link">
-                <!-- Đã Sửa Lại Đúng Tên Folder images của bạn -->
                 <img src="/assetsFT/images/fintop-logo.png" alt="FinTop DATA" class="neon-logo">
             </a>
-            <div class="tv-search-bar">
+            <!-- <div class="tv-search-bar">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                 </svg>
                 Tìm kiếm (Ctrl+K)
-            </div>
+            </div> -->
         </div>
         <ul class="tv-nav">
             <li class="nav-item">
@@ -57,12 +56,12 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a href="chuyen-gia/index.html">Chuyên gia <span style="font-size: 0.7em;">▼</span></a>
+                <a href="/client/about/index">Phân tích <span style="font-size: 0.7em;">▼</span></a>
                 <div class="dropdown-content">
-                    <a href="#">Thị trường</a>
-                    <a href="#">PRO analysis</a>
-                    <a href="#">Doanh nghiệp</a>
-                    <a href="#">PTĐT Ngành</a>
+                    <a href="/client/about/index">Thị trường</a>
+                    <a href="/client/about/session">PRO analysis</a>
+                    <a href="/client/about/industry">Doanh nghiệp</a>
+                    <a href="/client/about/stock">NCPT Ngành</a>
                 </div>
             </li>
 
@@ -77,11 +76,132 @@
             </li>
             <li class="nav-item"><a href="huong-dan/index.html">Hướng dẫn</a></li>
         </ul>
-        <div class="tv-right">
-            <span class="icon-link">🌐 VI</span>
+        <!-- <div class="tv-right">
+             <li class="nav-item dropdown">
+                <span id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <img src="{{url('/file-image/avatar/')}}/{{ isset(Auth::user()->avatar)?Auth::user()->avatar:'' }}" alt="Image" style="border-radius:50%;height: 30px;width: 30px;object-fit: cover;">
+                    <span style="color:white">
+                        {{ isset(Auth::user()->name)?Auth::user()->name:'' }}
+                    </span>
+                </span>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ URL::asset('/client/infor/index') }}">
+                        <p>
+                            {{ __('Thông tin cá nhân') }}
+                        </p>
+                    </a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        <p>
+                            {{ __('Đăng xuất') }}
+                        </p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </li>
             <span class="icon-link">👤</span>
-            <button class="btn-tv-blue">Bắt đầu</button>
-        </div>
+
+            <a href="/login">
+                <button class="btn-tv-blue">Đăng nhập</button>
+            </a>
+
+            <a href="/register">
+                <button class="btn-tv-blue">Đăng ký</button>
+            </a>
+        </div> -->
+        <div class="user-login-header">
+                <!-- <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex" id="navbar-toggler-success"> -->
+                <ul class="navbar-nav">
+                    <!-- Authentication Links -->
+                    @guest
+                    <div style="display:flex;">
+                        <div>
+                            @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}" style="color:white;padding:0px"><span>{{ __('Đăng nhập') }}</span> </a>
+                            </li>
+                            @endif
+                        </div>
+                        <div style="padding-left:10px">
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}" style="color:white;padding:0px"><span>{{ __('Đăng ký') }}</span> </a>
+                            </li>
+                            @endif
+                        </div>
+                    </div>
+                    @else
+                    <li class="nav-item dropdown">
+                        <span id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="{{url('/file-image/avatar/')}}/{{ Auth::user()->avatar }}" alt="Image" style="border-radius:50%;height: 30px;width: 30px;object-fit: cover;">
+                            <span style="color:white">
+                                {{ isset(Auth::user()->name)?Auth::user()->name:'' }}
+                            </span>
+                        </span>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ URL::asset('/client/infor/index') }}">
+                                <p>
+                                    {{ __('Thông tin cá nhân') }}
+                                </p>
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                <p>
+                                    {{ __('Đăng xuất') }}
+                                </p>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
+                    {{-- @if (!empty(Auth::user()->id))
+                        <span id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="{{url('/file-image/avatar/')}}/{{ !empty(Auth::user()->avatar)?Auth::user()->avatar:'' }}" alt="Image" style="border-radius:50%;height: 30px;width: 30px;object-fit: cover;">
+                    <span style="color:white">
+                        {{ isset(Auth::user()->name)?Auth::user()->name:'' }}
+                    </span>
+                    </span>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ URL::asset('/client/infor/index') }}">
+                            <p>
+                                {{ __('Thông tin cá nhân') }}
+                            </p>
+                        </a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                            <p>
+                                {{ __('Đăng xuất') }}
+                            </p>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                    @else
+                    <div style="display:flex;">
+                        <div>
+                            @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}" style="color:white;padding:0px"><span>{{ __('Đăng nhập') }}</span> </a>
+                            </li>
+                            @endif
+                        </div>
+                        <div style="padding-left:10px">
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}" style="color:white;padding:0px"><span>{{ __('Đăng ký') }}</span> </a>
+                            </li>
+                            @endif
+                        </div>
+                    </div>
+                    @endif--}}
+                </ul>
+                <!-- Right Side Of Navbar -->
+            </div>
     </header>
 
     <!-- ============================================ -->

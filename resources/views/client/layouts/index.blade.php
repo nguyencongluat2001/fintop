@@ -39,7 +39,7 @@
 
     @include('client.layouts.footer')
 
-
+    <script type="text/jscript" src="{{ asset('assets/js/toast.min.js') }}"></script>
     <script>
             // Header scroll effect
             window.addEventListener('scroll', () => {

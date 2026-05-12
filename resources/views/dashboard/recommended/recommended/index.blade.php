@@ -56,7 +56,7 @@
     <div class="modal " id="addfile" role="dialog"></div>
 
     <div id="dialogconfirm"></div>
-    <script src='../assets/js/jquery.js'></script>
+    <script src="{{ asset('/assets/js/jquery.js') }}"></script>
     <script type="text/javascript">
         var baseUrl = "{{ url('') }}";
         var JS_Recommended = new JS_Recommended(baseUrl, 'system', 'recommended');

@@ -18,7 +18,7 @@
         color: #000;
     }
 </style>
-<div class="card" style="background:#000000f5;">
+<div class="card" style="background:#020216a6;">
     <div class="form-group" align="center">
         <div class="col-md-12 mt-4 mb-3">
             <h3 class="text-uppercase" style="font-family: Serif;color:#ffffff">Thông tin tài khoản</h3>
