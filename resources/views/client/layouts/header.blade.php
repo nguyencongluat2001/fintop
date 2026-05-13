@@ -142,13 +142,13 @@
                         </span>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ URL::asset('/client/infor/index') }}">
-                                <p>
+                                <p style="color:#000000">
                                     {{ __('Thông tin cá nhân') }}
                                 </p>
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
-                                <p>
+                                <p style="color:#000000">
                                     {{ __('Đăng xuất') }}
                                 </p>
                             </a>

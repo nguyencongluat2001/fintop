@@ -39,7 +39,7 @@
    }
 
 </style>
-<section class="container">
+<section class="container" style="padding-top:80px">
     <div class=" pb-3 d-lg-flex gx-5">
         <div class="col-lg-12">
             <form action="" method="POST" id="frmLoadlist_infor">
@@ -47,9 +47,9 @@
                 <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="role" id="role" value="{{ isset($datas->role) ? $datas->role : '' }}">
                 <input type="hidden" name="id" id="id" value="{{ isset($datas->id) ? $datas->id : '' }}">
-                <div class="home_index_vnindex pt-1 pb-3" style="background:#ffffff91 !important;border-radius:0px !important">
+                <div class="home_index_vnindex pt-1 pb-3">
                     <!-- phần giới thiệu FIn top -->
-                    <div class="home_index_child" style="background:#700e13 !important">
+                    <div class="home_index_child" style="background:#040c23d9 !important">
                         <div class="col-lg-12" style="padding:10px;">
                             <div class="row">
                                 <div class="col-md-8" style="color: black;">

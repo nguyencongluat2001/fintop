@@ -38,11 +38,11 @@ class InforController extends Controller
      */
     public function index(Request $request)
     {
-        $users = $this->userService->where('id', $_SESSION['id'])->first();
-        $user_infor = $this->userInfoService->where('user_id', $_SESSION['id'])->first();
+        $users = $this->userService->where('id', session('id'))->first();
+        $user_infor = $this->userInfoService->where('user_id', session('id'))->first();
         $users['user_infor'] = $user_infor;
         $data['datas'] = $users;
-        $data['vip'] = $this->ApprovePaymentService->select()->where('user_id', $_SESSION['id'])->get()->unique('role_client');
+        $data['vip'] = $this->ApprovePaymentService->select()->where('user_id', session('id'))->get()->unique('role_client');
         $data['data']['user_introduce_name'] = '';
         if(!empty($data['datas']->id_manage)){
             $tt = $this->userService->where('id_personnel', $data['datas']->id_manage)->first();
@@ -63,8 +63,8 @@ class InforController extends Controller
      */
     public function loadList(Request $request)
     { 
-        $users = $this->userService->where('id', $_SESSION['id'])->first();
-        $user_infor = $this->userInfoService->where('user_id', $_SESSION['id'])->first();
+        $users = $this->userService->where('id', session('id'))->first();
+        $user_infor = $this->userInfoService->where('user_id', session('id'))->first();
         $users['user_infor'] = $user_infor;
         $data['datas'] = $users;
         return view('client.infor.index', $data);

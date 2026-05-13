@@ -19,6 +19,7 @@
     <link href="{{ asset('clients/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('clients/fontawesome/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('clients/css/boxicon.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/chosen/chosen.min.css') }}" rel="stylesheet">
 
     <script src="/assetsFT/js/scroll-animation.js" defer></script>
     <script src="/assetsFT/js/counter.js" defer></script>
@@ -27,8 +28,12 @@
     <!-- Bootstrap -->
     <script src="{{ asset('clients/js/bootstrap.bundle.min.js') }}"></script>
 
+    <script src="{{ asset('assets/chosen/chosen.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/toast.min.css') }}">
+    <script src="{{ asset('clients/js/templatemo.js') }}"></script>
 
+    <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css') }}">
+    <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
 </head>
 
 <body>

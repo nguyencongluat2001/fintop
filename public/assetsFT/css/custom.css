@@ -191,6 +191,61 @@
     transform: translateX(-50%) scaleX(1);
 }
 
+/* Bootstrap user menu in the fixed header */
+.user-login-header {
+    position: relative;
+    z-index: 1002;
+}
+
+.user-login-header .navbar-nav {
+    margin: 0;
+}
+
+.user-login-header .dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.user-login-header .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    min-width: 170px;
+    margin-top: 8px;
+    padding: 6px 0;
+    background: #fff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    z-index: 1003;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.user-login-header .dropdown-menu:not(.show) {
+    display: none;
+}
+
+.user-login-header .dropdown-item {
+    padding: 8px 14px;
+    color: #111827;
+    font-size: 0.82rem;
+    text-decoration: none;
+}
+
+.user-login-header .dropdown-item p {
+    margin: 0;
+}
+
+.user-login-header .dropdown-item:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
 /* === CONTENT PANELS (Tra cứu / Bộ lọc) === */
 .submenu-panel {
     display: none;
